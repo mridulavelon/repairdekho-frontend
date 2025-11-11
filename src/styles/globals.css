@@ -1,12 +1,36 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+body {
+  background-color: white;
+  color: black !important;
+  overflow-x: hidden;
+}
 
 :root {
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
+  color: black !important;
+  background-color: white;
 }
+
+@font-face {
+  font-family: 'Roboto Slab';
+  src: url('/fonts/robotoslab-regular-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* @font-face {
+  font-family: 'Roboto Slab';
+  src: url('/fonts/robotoslab-regular-webfont.woff2') format('woff2');
+  font-weight: bold;
+  font-style: normal;
+} */
 
 @media (prefers-color-scheme: dark) {
   :root {
@@ -30,4 +54,79 @@ body {
   .text-balance {
     text-wrap: balance;
   }
+}
+@media (min-width: 1400px) {
+  .container, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl {
+      max-width: 1320px !important;
+  }
+}
+@media (min-width: 1200px) {
+  .container, .container-lg, .container-md, .container-sm, .container-xl {
+      max-width: 1140px;
+  }
+}
+@media (min-width: 992px) {
+  .container, .container-lg, .container-md, .container-sm {
+      max-width: 960px;
+  }
+}
+@media (min-width: 768px) {
+  .container, .container-md, .container-sm {
+      max-width: 720px;
+  }
+}
+@media (min-width: 576px) {
+  .container, .container-sm {
+      max-width: 540px;
+  }
+}
+.container, .container-fluid, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl {
+  width: 100%;
+  padding-right: var(--bs-gutter-x, .75rem);
+  padding-left: var(--bs-gutter-x, .75rem);
+  margin-right: auto;
+  margin-left: auto;
+}
+.roundimg {
+  overflow: hidden;
+  border-radius: 14px;
+}
+.sw-card {
+  box-shadow: 0px 0px 10px 0px rgb(0 0 0 / 50%) !important;
+  margin: 6px;
+  border-radius: 21px;
+  padding: 10px;
+  text-align: center;
+  color: #000;
+  font-weight: bold;
+  cursor: pointer;
+}
+.sw-cl-2 {
+  background: var(--white-color);
+}
+.mt-12{
+  margin-top: 4rem !important;
+}
+.slick-list, .slick-slider, .slick-track {
+  position: relative;
+  display: flex !important;
+  gap: 1rem !important;
+}
+.fac, .tw {
+  color: #397bf1;
+}
+.you {
+  color: #eb0401;
+}
+.lin {
+  color: #1274b0;
+}
+.ins {
+  color: #b919b3;
+}
+.react-datepicker-wrapper{
+  width: 100%;
+}
+.react-datepicker__aria-live{
+  display: none;
 }
