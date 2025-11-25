@@ -5,7 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
-type IPad = {
+type Watch = {
   name: string;
   slug: string;
   description: string;
@@ -13,60 +13,60 @@ type IPad = {
   chip: string;
 };
 
-const ipadModels: IPad[] = [
+const watchModels: Watch[] = [
   {
-    name: "iPad Pro 13-inch (M4)",
-    slug: "ipad-pro-13-m4",
-    description: "The most advanced iPad ever — unbelievably powerful and thin.",
-    highlights: ["Tandem OLED", "Face ID", "Magic Keyboard"],
-    chip: "M4",
+    name: "Apple Watch Series 9",
+    slug: "apple-watch-series-9",
+    description: "Powerful, fast, and incredibly intuitive with the S9 chip.",
+    highlights: ["Always-On Display", "Double Tap Gesture", "Heart Rate"],
+    chip: "S9",
   },
   {
-    name: "iPad Pro 11-inch (M4)",
-    slug: "ipad-pro-11-m4",
-    description: "Portable performance with stunning visuals.",
-    highlights: ["XDR Brightness", "Wi-Fi 6E", "Pencil Pro"],
-    chip: "M4",
+    name: "Apple Watch Ultra 2",
+    slug: "apple-watch-ultra-2",
+    description: "Built for extreme adventure with incredible battery life.",
+    highlights: ["Brightest Display", "Titanium Body", "GPS Precision"],
+    chip: "S9 SiP",
   },
   {
-    name: "iPad Air 13-inch (M2)",
-    slug: "ipad-air-13-m2",
-    description: "Big screen. Big power. Lightweight performance.",
-    highlights: ["Touch ID", "USB-C", "Pencil Pro"],
-    chip: "M2",
+    name: "Apple Watch SE (2nd Gen)",
+    slug: "apple-watch-se-2",
+    description: "Essential features, everyday affordability.",
+    highlights: ["Crash Detection", "Swimproof", "Family Setup"],
+    chip: "S8",
   },
   {
-    name: "iPad Air 11-inch (M2)",
-    slug: "ipad-air-11-m2",
-    description: "Perfect balance of portability and power.",
-    highlights: ["Liquid Retina", "Wi-Fi 6", "5G"],
-    chip: "M2",
+    name: "Apple Watch Series 8",
+    slug: "apple-watch-series-8",
+    description: "Advanced health tracking with temperature sensing.",
+    highlights: ["ECG", "Car Crash Detection", "Fast Charging"],
+    chip: "S8",
   },
   {
-    name: "iPad 10th Generation",
-    slug: "ipad-10th-gen",
-    description: "Colorful, fun, and powerful for everyday use.",
-    highlights: ["Landscape Camera", "Stereo Speakers"],
-    chip: "A14",
+    name: "Apple Watch Nike Edition",
+    slug: "apple-watch-nike",
+    description: "Sporty and stylish with exclusive Nike watch faces.",
+    highlights: ["Nike Bands", "Exclusive Faces", "Fitness Focused"],
+    chip: "S8",
   },
   {
-    name: "iPad Mini 6",
-    slug: "ipad-mini-6",
-    description: "Small but mighty — fits in your hand.",
-    highlights: ["USB-C", "True Tone", "Touch ID"],
-    chip: "A15",
+    name: "Apple Watch Hermès",
+    slug: "apple-watch-hermes",
+    description: "Luxurious leather bands with exclusive Hermès styling.",
+    highlights: ["Designer Bands", "Exclusive Faces", "Premium Build"],
+    chip: "S9",
   },
 ];
 
-export default function IPadModels({ data }: any) {
+export default function IWatchModels({ data }: any) {
   const [search, setSearch] = useState("");
 
-  const filtered = ipadModels.filter((i) =>
-    i.name.toLowerCase().includes(search.toLowerCase())
+  const filtered = watchModels.filter((w) =>
+    w.name.toLowerCase().includes(search.toLowerCase())
   );
 
   useEffect(() => {
-   console.log(data);
+   console.log(data)
   })
 
   return (
@@ -75,19 +75,20 @@ export default function IPadModels({ data }: any) {
       <section className="bg-gradient-to-br from-orange-100 via-white to-slate-100 py-24">
         <div className="container mx-auto px-6">
 
-          <h1 className="text-5xl font-medium  text-slate-900 mb-4">
-            Explore the iPad lineup
+          <h1 className="text-5xl font-medium text-slate-900 mb-4">
+            Explore the Apple Watch Lineup
           </h1>
 
           <p className="text-lg text-slate-600 max-w-xl leading-relaxed">
-            Pick the perfect iPad for creativity, productivity, entertainment, and everything in between.
+            Find the perfect Apple Watch to track your fitness, stay connected, 
+            and achieve more — right from your wrist.
           </p>
 
           {/* SEARCH */}
           <div className="mt-8 max-w-md">
             <input
               type="text"
-              placeholder="Search iPad models..."
+              placeholder="Search Apple Watch models..."
               value={search}
               onChange={(e) => setSearch(e.target.value)}
               className="w-full px-5 py-3 rounded-xl border border-slate-300 
@@ -97,40 +98,40 @@ export default function IPadModels({ data }: any) {
         </div>
       </section>
 
-      {/* LISTING GRID */}
+      {/* WATCH LISTING GRID */}
       <section className="py-20 bg-white">
         <div className="container mx-auto px-6">
           <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-3">
-            {filtered.map((ipad) => (
+            {filtered.map((watch) => (
               <div
-                key={ipad.slug}
+                key={watch.slug}
                 className="bg-white rounded-3xl border border-slate-200 shadow-lg 
                            p-8 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300"
               >
                 <div className="w-full flex justify-center mb-6">
                   <Image
-                    src="/images/ipad.png"
-                    width={250}
-                    height={250}
-                    alt={ipad.name}
+                    src="/images/iwatch.png"
+                    width={220}
+                    height={220}
+                    alt={watch.name}
                     className="rounded-xl object-cover transition-transform duration-300 hover:scale-105"
                   />
                 </div>
 
                 <h3 className="text-2xl font-bold text-slate-900 mb-2">
-                  {ipad.name}
+                  {watch.name}
                 </h3>
 
-                <p className="text-slate-600 mb-4">{ipad.description}</p>
+                <p className="text-slate-600 mb-4">{watch.description}</p>
 
                 {/* Chip */}
                 <p className="font-semibold text-orange-600 mb-4">
-                  🔥 Chip: {ipad.chip}
+                  🔥 Chip: {watch.chip}
                 </p>
 
                 {/* Highlights */}
                 <div className="flex flex-wrap gap-2 mb-6">
-                  {ipad.highlights.map((h, i) => (
+                  {watch.highlights.map((h, i) => (
                     <span
                       key={i}
                       className="bg-slate-100 text-xs text-slate-700 px-3 py-1 rounded-full"
@@ -141,7 +142,7 @@ export default function IPadModels({ data }: any) {
                 </div>
 
                 <Link
-                  href={`/ipad/${ipad.slug}`}
+                  href={`/iwatch/${watch.slug}`}
                   className="block text-center bg-pink-600 hover:bg-orange-700 text-white 
                              font-semibold py-3 rounded-xl transition shadow-md"
                 >
@@ -154,18 +155,19 @@ export default function IPadModels({ data }: any) {
           {/* EMPTY STATE */}
           {filtered.length === 0 && (
             <div className="text-center mt-20">
-              <p className="text-xl text-slate-600">No iPad models found.</p>
+              <p className="text-xl text-slate-600">No Apple Watches found.</p>
             </div>
           )}
         </div>
       </section>
+
     </>
   );
 }
 export async function getStaticProps() {
     const modelsPayload = {
       brand:"apple",
-      type:"tablet"
+      type:"watch"
     }
     const modelsCall = await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/models/getmodels`,modelsPayload)
     .then((response) => {

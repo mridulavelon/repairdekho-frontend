@@ -32,48 +32,100 @@ export default function Offers({data}:any) {
      metadataBase=""
      urlslug={''}
     />
-      <section className="bg-slate-100 py-20 px-4 relative overflow-hidden">
-  <div className="container mx-auto relative z-10 text-center mb-16">
-    <h1 className="text-4xl font-extrabold mb-4">
-      {offers.length > 0 ? "🔥 Hot Coupon Codes & Offers" : "🚫 No Offers Found"}
+    <section className="bg-slate-50 py-20 px-4">
+
+  {/* HERO SECTION */}
+  <div className="max-w-4xl mx-auto text-center mb-16">
+    <h1 className="text-4xl md:text-5xl font-medium text-gray-900 mb-4">
+      {offers.length > 0 ? "Hot Coupon Codes & Offers" : "No Offers Found"}
     </h1>
-    <p className="text-lg text-purple-200 max-w-2xl mx-auto">
-      Grab your exclusive discounts and save big on your next service.
+
+    <p className="text-lg text-gray-600 max-w-xl mx-auto">
+      Unlock exclusive discounts and save more on your next device repair.  
+      Our offers are updated regularly — don’t miss out!
     </p>
+
+    {/* Hero CTA */}
+    <a
+      href="/repairmydevice"
+      className="mt-6 inline-block bg-pink-600 text-white px-6 py-3 rounded-full font-semibold hover:bg-indigo-700 transition"
+    >
+      Book a Repair Now
+    </a>
   </div>
 
-  <div className="container mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 relative z-10">
+
+  {/* OFFER CARDS */}
+  <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
     {offers.map((offer: any) => (
       <div
         key={offer._id}
-        className="bg-white text-gray-900 rounded-2xl shadow-lg overflow-hidden transform transition hover:-translate-y-2 hover:shadow-2xl"
+        className="bg-white rounded-2xl border shadow-sm hover:shadow-xl transition overflow-hidden"
       >
-        <div className="relative h-48 overflow-hidden">
+        {/* Fallback Image Section */}
+        <div className="h-48 bg-gray-100 flex items-center justify-center overflow-hidden">
           <img
-            src={"https://img.freepik.com/free-photo/3d-rendering-abstract-black-white-background_23-2150913835.jpg"}
+            src={offer.image || "/coupon-fallback.jpg"}
             alt={offer.label}
-            className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
+            className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
         </div>
+
+        {/* Content */}
         <div className="p-6">
-          <h2 className="text-xl font-bold mb-2">{offer.label}</h2>
-          <p className="text-gray-700">{offer.infotext}</p>
+          <h2 className="text-xl font-bold text-gray-900 mb-2">{offer.label}</h2>
+          <p className="text-gray-700 text-sm">{offer.infotext}</p>
+
           <button
             onClick={() => handleSelectedOffer(offer.label)}
-            className="mt-4 inline-block bg-pink-700 text-white px-4 py-2 rounded-full shadow hover:bg-indigo-700 transition"
+            className="mt-5 w-full bg-pink-600 text-white py-2 rounded-full hover:bg-indigo-700 transition"
           >
-            Click to Copy Code
+            Copy Code
           </button>
         </div>
       </div>
     ))}
   </div>
 
-  {/* Optional: floating decorative blobs for visual effect */}
-  <div className="absolute top-0 right-0 w-64 h-64 bg-purple-400 opacity-20 rounded-full mix-blend-overlay blur-3xl animate-pulse"></div>
-  <div className="absolute bottom-0 left-0 w-96 h-96 bg-pink-400 opacity-10 rounded-full mix-blend-overlay blur-3xl animate-pulse"></div>
+
+  {/* EXTRA CONTENT SECTION */}
+  <div className="max-w-5xl mx-auto mt-20 bg-white border rounded-2xl p-10 shadow-sm">
+    <h3 className="text-3xl font-bold text-gray-900 text-center mb-6">
+      Why Use Our Coupon Codes?
+    </h3>
+
+    <p className="text-gray-700 text-center max-w-2xl mx-auto mb-10">
+      We believe repairing your device should be affordable and hassle-free.  
+      Our exclusive offers help you save while enjoying premium-quality service.
+    </p>
+
+    <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+
+      <div className="p-6 bg-gray-50 rounded-xl shadow-sm hover:shadow-md transition">
+        <h4 className="text-lg font-semibold text-indigo-700 mb-2">💰 Instant Savings</h4>
+        <p className="text-gray-700 text-sm">
+          Apply the coupon at checkout and get instant discounts on your repair service.
+        </p>
+      </div>
+
+      <div className="p-6 bg-gray-50 rounded-xl shadow-sm hover:shadow-md transition">
+        <h4 className="text-lg font-semibold text-indigo-700 mb-2">🎁 Exclusive Offers</h4>
+        <p className="text-gray-700 text-sm">
+          Our coupon codes are unique and not available anywhere else.
+        </p>
+      </div>
+
+      <div className="p-6 bg-gray-50 rounded-xl shadow-sm hover:shadow-md transition">
+        <h4 className="text-lg font-semibold text-indigo-700 mb-2">⚡ Easy to Redeem</h4>
+        <p className="text-gray-700 text-sm">
+          Copy the code, apply on checkout, and enjoy reduced prices instantly.
+        </p>
+      </div>
+    </div>
+  </div>
+
 </section>
+
     </>
     )
 }

@@ -3,7 +3,7 @@ import useStore from "@/lib/store";
 import axios from "axios";
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import { jwtDecode } from "jwt-decode";
+
 
 export default function Blogs({data}:any) {
   const { updateLoading } = useStore();
@@ -25,83 +25,116 @@ export default function Blogs({data}:any) {
      metadataBase=""
      urlslug={''}
     />
-<section className="bg-gradient-to-br from-black via-purple-900 to-black text-white py-20 px-4 relative overflow-hidden">
+    <section className="bg-white text-gray-900 py-20 px-4">
 
-  {/* Header */}
-  <div className="text-center mb-6">
-    <h1 className="text-4xl font-bold">
-      {blogs.length > 0 ? "📝 Latest Blog Posts" : "🚫 No blogs found"}
+  {/* HERO SECTION */}
+  <div className="max-w-4xl mx-auto text-center">
+    <h1 className="text-4xl md:text-5xl font-medium leading-tight">
+      Explore Our Latest <span className="text-pink-600">Blogs & Insights</span>
     </h1>
+    <p className="mt-4 text-lg text-gray-600 max-w-2xl mx-auto">
+      Stay updated with expert guides, tech insights, tutorials, news, and trending topics.
+    </p>
 
     {/* Search Bar */}
-    <div className="mt-6 flex justify-center py-4">
-      <div className="flex w-full max-w-md">
+    <div className="mt-8 flex justify-center">
+      <div className="flex w-full max-w-md shadow-lg rounded-full overflow-hidden border border-gray-200">
         <input
           type="text"
           placeholder="Search blogs..."
-          className="flex-grow px-4 py-2 rounded-l-full text-gray-800 focus:outline-none"
+          className="flex-grow px-4 py-3 text-base focus:outline-none"
         />
-        <button className="bg-pink-700 hover:bg-indigo-700 px-4 py-2 rounded-r-full transition-colors">
-          Submit
+        <button className="bg-pink-600 hover:bg-indigo-700 text-white px-6 py-3 text-sm font-semibold transition">
+          Search
         </button>
       </div>
     </div>
   </div>
 
-  {/* Blog List */}
-  <div className="container mx-auto grid grid-cols-1 gap-6">
+  {/* BLOG LIST */}
+  <div className="max-w-6xl mx-auto mt-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+
     {blogs.map((blog: any) => (
       <div
         key={blog._id}
-        className="flex bg-white text-gray-900 rounded-xl shadow-md hover:shadow-lg transition duration-300 overflow-hidden"
+        className="bg-white border border-gray-200 rounded-2xl shadow hover:shadow-xl transition overflow-hidden"
       >
         <img
           src={blog.cover}
           alt={blog.title}
-          className="h-48 w-full object-cover transition-transform duration-300 hover:scale-105"
+          className="w-full h-48 object-cover transition-transform duration-300 hover:scale-105"
         />
-        <div className="p-4">
-          <h2 className="text-lg font-semibold text-indigo-800 mb-1 truncate">{blog.title}</h2>
-          <p className="text-sm text-gray-600 line-clamp-3">{blog.summary}</p>
+
+        <div className="p-5">
+          <h2 className="text-lg font-bold text-gray-900 mb-1 line-clamp-2">
+            {blog.title}
+          </h2>
+          <p className="text-sm text-gray-600 line-clamp-3 mb-4">
+            {blog.summary}
+          </p>
+
           <Link
             onClick={() => updateLoading(true)}
             href={`/blogs/${blog.blogurl}`}
-            className="inline-block mt-3 bg-pink-700 text-white px-4 py-2 rounded-full shadow hover:bg-indigo-700 transition"
+            className="inline-block px-4 py-2 bg-pink-600 text-white rounded-full text-sm font-medium hover:bg-indigo-700 transition"
           >
             Read More →
           </Link>
         </div>
       </div>
     ))}
+
   </div>
 
 
-  <div className="mt-20 bg-white text-gray-800 py-12 px-4 rounded-xl shadow-inner container mx-auto">
-  <h2 className="text-2xl md:text-3xl font-bold text-center mb-6">
-    Why Read Our Blog?
-  </h2>
-  <p className="text-center max-w-2xl mx-auto text-gray-600 mb-10">
-    Stay ahead with curated insights, practical tips, and deep dives into topics that matter. Whether you're a curious learner or a seasoned pro, we have something valuable for you.
-  </p>
+  {/* WHY READ OUR BLOG */}
+  <div className="mt-24 bg-gray-50 py-16 px-6 rounded-3xl max-w-6xl mx-auto shadow-inner">
 
-  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
-    <div className="p-6 bg-indigo-50 rounded-lg shadow hover:shadow-md transition duration-300">
-      <h3 className="text-xl font-semibold text-indigo-700 mb-2">🧠 Expert Insights</h3>
-      <p className="text-sm text-gray-700">Get knowledge and advice from industry professionals across multiple fields.</p>
-    </div>
-    <div className="p-6 bg-purple-50 rounded-lg shadow hover:shadow-md transition duration-300">
-      <h3 className="text-xl font-semibold text-purple-700 mb-2">🚀 Stay Updated</h3>
-      <p className="text-sm text-gray-700">Learn about the latest trends, technologies, and updates in your interest areas.</p>
-    </div>
-    <div className="p-6 bg-yellow-50 rounded-lg shadow hover:shadow-md transition duration-300">
-      <h3 className="text-xl font-semibold text-yellow-700 mb-2">💡 Actionable Ideas</h3>
-      <p className="text-sm text-gray-700">Get inspired by real use cases, how-to guides, and creative solutions.</p>
+    <h2 className="text-3xl font-bold text-center mb-4">
+      Why Read Our Blog?
+    </h2>
+    <p className="text-center text-gray-600 max-w-2xl mx-auto mb-10">
+      We bring you hand-picked knowledge, expert tutorials, and deep insights from multiple industries.
+    </p>
+
+    <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-5xl mx-auto">
+      
+      <div className="p-6 bg-white border border-gray-200 rounded-xl shadow-md hover:shadow-lg transition">
+        <h3 className="text-xl font-semibold text-indigo-700 mb-2">🎯 Expert Knowledge</h3>
+        <p className="text-sm text-gray-700">Learn from experts and specialists who share real-world insights.</p>
+      </div>
+
+      <div className="p-6 bg-white border border-gray-200 rounded-xl shadow-md hover:shadow-lg transition">
+        <h3 className="text-xl font-semibold text-indigo-700 mb-2">📈 Stay Ahead</h3>
+        <p className="text-sm text-gray-700">Get the latest updates on tech, business, software, and innovations.</p>
+      </div>
+
+      <div className="p-6 bg-white border border-gray-200 rounded-xl shadow-md hover:shadow-lg transition">
+        <h3 className="text-xl font-semibold text-indigo-700 mb-2">💡 Practical Tips</h3>
+        <p className="text-sm text-gray-700">Step-by-step guides, how-tos, tools, and productivity techniques.</p>
+      </div>
+
     </div>
   </div>
-</div>
+
+
+  {/* SMALL CTA SECTION */}
+  <div className="max-w-4xl mx-auto mt-20 text-center">
+    <h3 className="text-2xl font-bold mb-3">
+      Want more insightful content?
+    </h3>
+    <p className="text-gray-600 mb-6">
+      We post weekly updates. Don't miss out on valuable knowledge.
+    </p>
+
+    <a
+      href="/contact"
+      className="inline-block px-8 py-3 bg-pink-600 text-white rounded-full text-lg font-medium hover:bg-indigo-700 transition shadow"
+    >
+      Contact Us
+    </a>
+  </div>
 </section>
-
-
       </>
     )
   }

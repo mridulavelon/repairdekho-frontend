@@ -1,4 +1,4 @@
-import { MoonLoader } from "react-spinners"
+import { HashLoader, MoonLoader } from "react-spinners"
 import useStore from "@/lib/store";
 export default function Loader() {
     const{ loading } = useStore();
@@ -6,7 +6,7 @@ export default function Loader() {
         <>
         {loading && (
         <div className="fixed inset-0 flex items-center justify-center bg-gray-500 bg-opacity-50 z-50">
-        <MoonLoader color="orange"/>
+        <HashLoader color="orange"/>
       </div>
         )}
       </>

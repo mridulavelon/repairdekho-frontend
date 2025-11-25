@@ -64,7 +64,7 @@ export default function Repairmydevice({data}:any) {
 
       const getModels = async (brand:string,devicetype:string) => {
         updateLoading(true);
-        let data = {
+        const data = {
              brand:brand,
              type:devicetype
           } 

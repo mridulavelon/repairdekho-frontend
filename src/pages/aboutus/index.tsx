@@ -212,147 +212,152 @@ export default function Aboutus() {
   </div>
 </section>
       </div> */}
-      <div className="bg-gradient-to-br from-indigo-900 via-purple-900 to-indigo-900 text-white relative overflow-hidden">
-  {/* Background glow */}
-  <div className="absolute inset-0 bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 opacity-0 blur-0" />
+   <div className="bg-white text-gray-800">
 
-  {/* Hero */}
-  <section className="py-20 px-4 relative z-10 text-center text-gray-500 mx-auto bg-[url('/images/whowe.jpg')] bg-cover bg-center">
-  <h1 className="text-5xl font-extrabold mb-4">Who We Are</h1>
-  <p className="text-lg text-gray-200 max-w-2xl mx-auto">
-    At Repair Dekho, we simplify the way India fixes phones, tablets, laptops, and more — with certified technicians, doorstep service, and total transparency.
-  </p>
-  <a href="/repairmydevice" className="inline-block mt-8 text-slate-50 font-bold px-6 py-3 rounded-full hover:bg-gray-100 transition bg-pink-600">
-    Book a Repair
-  </a>
-</section>
+  {/* HERO SECTION */}
+  <section className="py-20 px-4 border-b bg-gray-50">
+    <div className="max-w-5xl mx-auto text-center">
+      <h1 className="text-5xl font-bold mb-4 text-gray-900">
+        Who We Are
+      </h1>
+      <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+        At Repair Dekho, we’re reshaping how India repairs phones, tablets, laptops, and more —
+        with certified technicians, doorstep service, and complete transparency.
+      </p>
+      <a
+        href="/repairmydevice"
+        className="inline-block mt-8 bg-indigo-600 text-white font-semibold px-6 py-3 rounded-full hover:bg-indigo-700 transition"
+      >
+        Book a Repair
+      </a>
+    </div>
+  </section>
 
-
-  {/* Feature Cards */}
-  <section className="py-16 px-4 relative z-10 max-w-7xl mx-auto">
+  {/* FEATURES SECTION */}
+  <section className="py-16 px-4 max-w-7xl mx-auto">
     <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
       {features.map((f, i) => (
-        <div key={i} className="bg-white/10 p-6 rounded-2xl shadow-lg hover:shadow-2xl hover:scale-[1.02] transition">
-          <h3 className="text-2xl font-bold text-white mb-2">{f.title}</h3>
-          <p className="text-gray-300">{f.desc}</p>
+        <div key={i} className="bg-white border p-6 rounded-xl shadow-sm hover:shadow-md transition">
+          <h3 className="text-2xl font-bold mb-2">{f.title}</h3>
+          <p className="text-gray-600">{f.desc}</p>
         </div>
       ))}
     </div>
   </section>
 
-  {/* Mission & Vision */}
-  <section className="py-20 px-4 relative z-10 text-center max-w-4xl mx-auto">
-    <h2 className="text-4xl font-bold mb-6">Our Mission</h2>
-    <p className="text-lg text-gray-300 mb-12">
-      To bring India’s best device repair services right to your doorstep, at fair prices, without compromising privacy or quality.
-    </p>
-    <h2 className="text-4xl font-bold mb-6">Our Vision</h2>
-    <p className="text-lg text-gray-300">
-      A future where getting your phone fixed is as easy as ordering food — fast, secure, and trusted by millions.
-    </p>
+  {/* MISSION & VISION */}
+  <section className="py-20 px-4 bg-gray-50 border-y">
+    <div className="max-w-4xl mx-auto text-center">
+      <h2 className="text-4xl font-bold mb-6">Our Mission</h2>
+      <p className="text-lg text-gray-600 mb-12">
+        To provide India’s most reliable, fast, and affordable device repair service right at your doorstep.
+      </p>
+
+      <h2 className="text-4xl font-bold mb-6">Our Vision</h2>
+      <p className="text-lg text-gray-600">
+        A future where repairing your phone is as easy as ordering food — fast, secure, and trusted by millions.
+      </p>
+    </div>
   </section>
 
-  {/* Team Section */}
-  <section className="py-20 px-4 relative z-10 max-w-6xl mx-auto">
+  {/* TEAM SECTION */}
+  <section className="py-20 px-4 max-w-6xl mx-auto">
     <h2 className="text-4xl font-bold text-center mb-12">Meet Our Team</h2>
-    <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-8 text-center">
+
+    <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-10 text-center">
       {team.map((member, i) => (
-        <div key={i} className="bg-white/10 rounded-xl p-6 shadow-lg hover:scale-[1.02] transition">
-          <img src={member.img} alt={member.name} className="w-24 h-24 rounded-full mx-auto mb-4 border-4 border-white/30" />
+        <div key={i} className="bg-white border rounded-xl p-6 shadow-sm hover:shadow-md transition">
+          <img
+            src={member.img}
+            alt={member.name}
+            className="w-24 h-24 rounded-full mx-auto mb-4 object-cover border"
+          />
           <h4 className="text-xl font-semibold">{member.name}</h4>
-          <p className="text-sm text-gray-300">{member.role}</p>
+          <p className="text-sm text-gray-500">{member.role}</p>
         </div>
       ))}
     </div>
   </section>
 
-  {/* Testimonials */}
-  <section className="py-20 px-4 relative z-10 max-w-6xl mx-auto">
+  {/* TESTIMONIALS */}
+  <section className="py-20 px-4 bg-gray-50 border-y">
     <h2 className="text-4xl font-bold text-center mb-12">What Customers Say</h2>
-    <div className="grid md:grid-cols-2 gap-8">
-      <div className="bg-white/10 p-6 rounded-xl shadow-lg">
-        <p className="text-gray-300 mb-4">"Super fast and very polite staff. They fixed my iPhone screen at home in under 30 minutes!"</p>
-        <p className="text-sm text-white font-semibold">— Kavita Joshi</p>
+
+    <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-8">
+      <div className="bg-white border p-6 rounded-xl shadow-sm hover:shadow-md transition">
+        <p className="text-gray-600 mb-4">
+          "Super fast and polite staff. They fixed my iPhone screen at home in under 30 minutes!"
+        </p>
+        <p className="text-sm font-semibold text-gray-800">— Kavita Joshi</p>
       </div>
-      <div className="bg-white/10 p-6 rounded-xl shadow-lg">
-        <p className="text-gray-300 mb-4">"What a service! Booking was easy, the technician arrived on time, and my device feels brand new."</p>
-        <p className="text-sm text-white font-semibold">— Rahul Bansal</p>
+      <div className="bg-white border p-6 rounded-xl shadow-sm hover:shadow-md transition">
+        <p className="text-gray-600 mb-4">
+          "Booking was easy, technician arrived on time, and my device feels brand new."
+        </p>
+        <p className="text-sm font-semibold text-gray-800">— Rahul Bansal</p>
       </div>
     </div>
   </section>
 
-  {/* Services Overview */}
-  <section className="py-20 px-4 relative z-10 bg-gray-800 text-white text-center">
-    <h2 className="text-4xl font-bold mb-12">Our Services</h2>
+  {/* SERVICES SECTION */}
+  <section className="py-20 px-4 max-w-7xl mx-auto">
+    <h2 className="text-4xl font-bold text-center mb-12">Our Services</h2>
+
     <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-      <div className="bg-white/10 p-6 rounded-2xl shadow-lg hover:scale-[1.02] transition">
-        <img src="path-to-phone-repair.jpg" alt="Phone Repair" className="w-full h-48 object-cover rounded-md mb-4" />
+      <div className="bg-white border p-6 rounded-2xl shadow-sm hover:shadow-md transition">
+        <img src="phone.jpg" className="w-full h-48 object-cover rounded-lg mb-4" />
         <h3 className="text-2xl font-bold mb-2">Phone Repair</h3>
-        <p className="text-gray-300">We specialize in fast and affordable repairs for all phone models, from screens to batteries and more.</p>
+        <p className="text-gray-600">Fast and affordable repairs for all phone models.</p>
       </div>
-      <div className="bg-white/10 p-6 rounded-2xl shadow-lg hover:scale-[1.02] transition">
-        <img src="path-to-laptop-repair.jpg" alt="Laptop Repair" className="w-full h-48 object-cover rounded-md mb-4" />
+
+      <div className="bg-white border p-6 rounded-2xl shadow-sm hover:shadow-md transition">
+        <img src="laptop.jpg" className="w-full h-48 object-cover rounded-lg mb-4" />
         <h3 className="text-2xl font-bold mb-2">Laptop Repair</h3>
-        <p className="text-gray-300">Whether it's a hardware issue or a software problem, our experts can get your laptop back in shape.</p>
+        <p className="text-gray-600">Hardware and software repairs handled by experts.</p>
       </div>
-      <div className="bg-white/10 p-6 rounded-2xl shadow-lg hover:scale-[1.02] transition">
-        <img src="path-to-tablet-repair.jpg" alt="Tablet Repair" className="w-full h-48 object-cover rounded-md mb-4" />
+
+      <div className="bg-white border p-6 rounded-2xl shadow-sm hover:shadow-md transition">
+        <img src="tablet.jpg" className="w-full h-48 object-cover rounded-lg mb-4" />
         <h3 className="text-2xl font-bold mb-2">Tablet Repair</h3>
-        <p className="text-gray-300">We offer professional repairs for all tablet models, ensuring your device is working like new again.</p>
+        <p className="text-gray-600">Professional repair services for all tablet models.</p>
       </div>
     </div>
   </section>
 
-  {/* Why Choose Us */}
-  <section className="py-20 px-4 relative z-10 max-w-7xl mx-auto text-center">
-    <h2 className="text-4xl font-bold mb-12">Why Choose Us</h2>
-    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-      <div className="bg-white/10 p-6 rounded-2xl shadow-lg hover:scale-[1.02] transition">
-        <img src="path-to-expert-technicians.jpg" alt="Expert Technicians" className="w-full h-48 object-cover rounded-md mb-4" />
+  {/* WHY CHOOSE US */}
+  <section className="py-20 px-4 bg-gray-50 border-y">
+    <h2 className="text-4xl font-bold text-center mb-12">Why Choose Us</h2>
+
+    <div className="max-w-7xl mx-auto grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div className="bg-white border p-6 rounded-2xl shadow-sm hover:shadow-md transition">
         <h3 className="text-2xl font-bold mb-2">Certified Technicians</h3>
-        <p className="text-gray-300">Our technicians are fully certified and trained to repair any device with precision and care.</p>
+        <p className="text-gray-600">Our team is trained and certified to handle all devices.</p>
       </div>
-      <div className="bg-white/10 p-6 rounded-2xl shadow-lg hover:scale-[1.02] transition">
-        <img src="path-to-doorstep-service.jpg" alt="Doorstep Service" className="w-full h-48 object-cover rounded-md mb-4" />
-        <h3 className="text-2xl font-bold mb-2">Convenient Doorstep Service</h3>
-        <p className="text-gray-300">We come to you! No need to leave your home or office for device repairs. It's quick and hassle-free.</p>
+      <div className="bg-white border p-6 rounded-2xl shadow-sm hover:shadow-md transition">
+        <h3 className="text-2xl font-bold mb-2">Doorstep Service</h3>
+        <p className="text-gray-600">We repair your device at your home or office — fast & easy.</p>
       </div>
-      <div className="bg-white/10 p-6 rounded-2xl shadow-lg hover:scale-[1.02] transition">
-        <img src="path-to-transparent-pricing.jpg" alt="Transparent Pricing" className="w-full h-48 object-cover rounded-md mb-4" />
+      <div className="bg-white border p-6 rounded-2xl shadow-sm hover:shadow-md transition">
         <h3 className="text-2xl font-bold mb-2">Transparent Pricing</h3>
-        <p className="text-gray-300">We offer upfront pricing with no hidden fees, so you know exactly what you're paying for.</p>
+        <p className="text-gray-600">Upfront pricing with no hidden charges.</p>
       </div>
     </div>
   </section>
 
-  {/* FAQ Section */}
-  <section className="py-20 px-4 relative z-10 bg-gray-900 text-white">
-    <h2 className="text-4xl font-bold text-center mb-12">Frequently Asked Questions</h2>
-    <div className="max-w-3xl mx-auto space-y-6">
-      <div className="bg-white/10 p-6 rounded-xl shadow-lg">
-        <h3 className="text-2xl font-semibold">How long does it take to repair my device?</h3>
-        <p className="text-gray-300">Most repairs are completed in under 2 hours, depending on the type of service needed.</p>
-      </div>
-      <div className="bg-white/10 p-6 rounded-xl shadow-lg">
-        <h3 className="text-2xl font-semibold">What types of devices do you repair?</h3>
-        <p className="text-gray-300">We repair phones, tablets, laptops, and other electronics. If you're unsure, just ask!</p>
-      </div>
-      <div className="bg-white/10 p-6 rounded-xl shadow-lg">
-        <h3 className="text-2xl font-semibold">Is my data safe during repairs?</h3>
-        <p className="text-gray-300">Yes, we prioritize your privacy and take every measure to ensure your data remains secure.</p>
-      </div>
-    </div>
-  </section>
 
-  {/* CTA Footer */}
-  <section className="py-20 px-4 bg-gradient-to-t from-indigo-900 to-indigo-800 relative z-10 text-center">
-    <h2 className="text-3xl font-bold mb-4">Ready to fix your device?</h2>
-    <p className="text-gray-300 mb-8">No lines. No delays. Just expert repair at your convenience.</p>
-    <a href="/repairmydevice" className="bg-white text-indigo-800 font-bold px-8 py-4 rounded-full hover:bg-gray-100 transition">
+  {/* CTA */}
+  <section className="py-20 px-4 bg-indigo-600 text-white text-center">
+    <h2 className="text-3xl font-bold mb-3">Ready to fix your device?</h2>
+    <p className="mb-8 text-indigo-100">Fast service. Certified experts. No hassle.</p>
+    <a
+      href="/repairmydevice"
+      className="bg-pink-600 text-white font-semibold px-8 py-4 rounded-full hover:bg-gray-100 transition"
+    >
       Get Started
     </a>
   </section>
 </div>
+
       </>
     )
   }

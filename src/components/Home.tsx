@@ -6,6 +6,7 @@ import Slider from "react-slick";
 import useStore from "@/lib/store";
 import { useEffect } from "react";
 import Metaseo from "./Metaseo";
+import DeviceSearch from "./DeviceSearch";
 export default function Homepage() {
   const { updateLoading } = useStore();
     const settings = {
@@ -57,45 +58,43 @@ export default function Homepage() {
     />
         <div className="bg-gray-50 text-gray-800 font-sans">
       {/* Hero Section */}
-      <section className="relative bg-orange-500 overflow-hidden px-6 py-10 sm:px-10 md:px-20">
-      {/* Background Shapes */}
-      <div className="absolute top-0 left-0 w-full h-full pointer-events-none z-0">
-        <div className="absolute w-40 h-40 bg-pink-500 rounded-full top-10 left-10 opacity-30"></div>
-        <div className="absolute w-24 h-24 bg-white rotate-45 top-32 left-32 opacity-20"></div>
-        <div className="absolute w-32 h-32 bg-fuchsia-600 rounded-full bottom-10 right-10 opacity-40"></div>
-        <div className="absolute w-16 h-16 bg-pink-300 rounded-full bottom-28 left-20 opacity-50"></div>
-      </div>
+     <section className="relative bg-orange-500 overflow-hidden px-6 py-10 sm:px-10 md:px-20">
+  {/* Background Shapes */}
+  <div className="absolute top-0 left-0 w-full h-full pointer-events-none z-0">
+    <div className="absolute w-40 h-40 bg-pink-500 rounded-full top-10 left-10 opacity-30"></div>
+    <div className="absolute w-24 h-24 bg-white rotate-45 top-32 left-32 opacity-20"></div>
+    <div className="absolute w-32 h-32 bg-fuchsia-600 rounded-full bottom-10 right-10 opacity-40"></div>
+    <div className="absolute w-16 h-16 bg-pink-300 rounded-full bottom-28 left-20 opacity-50"></div>
+  </div>
 
-      <div className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-12 max-w-7xl mx-auto">
-        {/* Left content */}
-        <div className="text-center md:text-left max-w-xl">
-          <h1 className="text-4xl sm:text-5xl font-extrabold text-gray-900 mb-4 leading-tight">
-            Mobile Repair at Your Doorstep
-          </h1>
-          <p className="text-lg text-gray-700 mb-6">
-            Friendly, fast & affordable. Get your smartphone fixed without leaving your home.
-          </p>
-          <a
-            href="#book"
-            className="inline-block bg-pink-600 text-white px-6 py-3 rounded-full font-semibold shadow-md hover:bg-pink-700 transition"
-          >
-            Book a Technician
-          </a>
-        </div>
+  <div className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-12 max-w-7xl mx-auto">
+    {/* Left content */}
+    <div className="text-center md:text-left max-w-xl">
+      <h1 className="text-4xl sm:text-5xl font-extrabold text-gray-900 mb-4 leading-tight">
+        Mobile Repair at Your Doorstep
+      </h1>
+      <p className="text-lg text-gray-800 mb-6">
+        Friendly, fast & affordable. Get your smartphone fixed without leaving your home.
+      </p>
 
-        {/* Right image */}
-        <div className="hidden w-full lg:flex justify-end">
-          <Image
-            src="/images/heroman.png"
-            alt="User with mobile phone"
-            width={1000}
-            height={1000}
-            className="object-cover h-auto w-fulll"
-            priority
-          />
-        </div>
-      </div>
-    </section>
+      {/* Search Bar */}
+      <DeviceSearch/>
+    </div>
+
+    {/* Right image */}
+    <div className="hidden w-full lg:flex justify-end">
+      <Image
+        src="/images/heroman.png"
+        alt="User with mobile phone"
+        width={1000}
+        height={1000}
+        className="object-cover h-auto w-full"
+        priority
+      />
+    </div>
+  </div>
+</section>
+
      
     <section className="bg-white py-20 px-4 md:px-10">
   <div className="max-w-7xl mx-auto text-center">
@@ -108,23 +107,30 @@ export default function Homepage() {
           title: "Phone Repair",
           image: "/images/ux-design.png",
           description: "Cracked screens, battery issues, and more.",
+          route: "/repairmydevice",
         },
         {
           title: "Laptop Repair",
           image: "/images/content.png",
           description: "Keyboard issues, slow performance, or upgrades.",
+          route: "/repairmydevice",
         },
         {
           title: "iWatch Repair",
           image: "/images/online-shop.png",
           description: "Battery replacement and screen repairs for smartwatches.",
+          route: "/repairmydevice",
         },
         {
           title: "iPad Repair",
           image: "/images/app.png",
           description: "Restore your iPad to top performance and look.",
+          route: "/repairmydevice",
         },
       ].map((service, index) => (
+        <Link
+         href={service.route}
+        >
         <div
           key={index}
           className="bg-zinc-900 text-slate-50 border border-orange-200 rounded-2xl p-6 hover:shadow-xl hover:-translate-y-2 transition-all duration-300 ease-in-out"
@@ -139,6 +145,7 @@ export default function Homepage() {
           <h3 className="text-xl font-bold text-slate-50  mb-2">{service.title}</h3>
           <p className="text-slate-50 font-semibold text-sm">{service.description}</p>
         </div>
+        </Link>
       ))}
     </div>
   </div>
