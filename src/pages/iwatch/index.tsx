@@ -1,7 +1,6 @@
 "use client";
 
 import axios from "axios";
-import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
@@ -13,61 +12,20 @@ type Watch = {
   chip: string;
 };
 
-const watchModels: Watch[] = [
-  {
-    name: "Apple Watch Series 9",
-    slug: "apple-watch-series-9",
-    description: "Powerful, fast, and incredibly intuitive with the S9 chip.",
-    highlights: ["Always-On Display", "Double Tap Gesture", "Heart Rate"],
-    chip: "S9",
-  },
-  {
-    name: "Apple Watch Ultra 2",
-    slug: "apple-watch-ultra-2",
-    description: "Built for extreme adventure with incredible battery life.",
-    highlights: ["Brightest Display", "Titanium Body", "GPS Precision"],
-    chip: "S9 SiP",
-  },
-  {
-    name: "Apple Watch SE (2nd Gen)",
-    slug: "apple-watch-se-2",
-    description: "Essential features, everyday affordability.",
-    highlights: ["Crash Detection", "Swimproof", "Family Setup"],
-    chip: "S8",
-  },
-  {
-    name: "Apple Watch Series 8",
-    slug: "apple-watch-series-8",
-    description: "Advanced health tracking with temperature sensing.",
-    highlights: ["ECG", "Car Crash Detection", "Fast Charging"],
-    chip: "S8",
-  },
-  {
-    name: "Apple Watch Nike Edition",
-    slug: "apple-watch-nike",
-    description: "Sporty and stylish with exclusive Nike watch faces.",
-    highlights: ["Nike Bands", "Exclusive Faces", "Fitness Focused"],
-    chip: "S8",
-  },
-  {
-    name: "Apple Watch Hermès",
-    slug: "apple-watch-hermes",
-    description: "Luxurious leather bands with exclusive Hermès styling.",
-    highlights: ["Designer Bands", "Exclusive Faces", "Premium Build"],
-    chip: "S9",
-  },
-];
 
 export default function IWatchModels({ data }: any) {
   const [search, setSearch] = useState("");
+  const [iwatches,setIwatches] = useState([]);
 
-  const filtered = watchModels.filter((w) =>
-    w.name.toLowerCase().includes(search.toLowerCase())
+  const filtered = iwatches.filter((w:any) =>
+    w.modelname.toLowerCase().includes(search.toLowerCase())
   );
 
   useEffect(() => {
-   console.log(data)
-  })
+   if(data?.response?.length > 0) {
+     setIwatches(data?.response);
+   }
+  },[data])
 
   return (
     <>
@@ -102,47 +60,31 @@ export default function IWatchModels({ data }: any) {
       <section className="py-20 bg-white">
         <div className="container mx-auto px-6">
           <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-3">
-            {filtered.map((watch) => (
+            {filtered.map((watch:any) => (
               <div
-                key={watch.slug}
+                key={watch.modelname}
                 className="bg-white rounded-3xl border border-slate-200 shadow-lg 
                            p-8 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300"
               >
                 <div className="w-full flex justify-center mb-6">
-                  <Image
-                    src="/images/iwatch.png"
-                    width={220}
-                    height={220}
-                    alt={watch.name}
-                    className="rounded-xl object-cover transition-transform duration-300 hover:scale-105"
-                  />
+                  <img
+  src={watch.smallimagelink || "/images/no-preview.png"}
+  width={220}
+  height={220}
+  alt={watch.modelname}
+  className="rounded-xl object-cover transition-transform duration-300 hover:scale-105"
+  onError={(e) => {
+    e.currentTarget.src = "/images/no-preview.png";
+  }}
+/>
                 </div>
 
                 <h3 className="text-2xl font-bold text-slate-900 mb-2">
-                  {watch.name}
+                  {watch.modelname}
                 </h3>
-
-                <p className="text-slate-600 mb-4">{watch.description}</p>
-
-                {/* Chip */}
-                <p className="font-semibold text-orange-600 mb-4">
-                  🔥 Chip: {watch.chip}
-                </p>
-
-                {/* Highlights */}
-                <div className="flex flex-wrap gap-2 mb-6">
-                  {watch.highlights.map((h, i) => (
-                    <span
-                      key={i}
-                      className="bg-slate-100 text-xs text-slate-700 px-3 py-1 rounded-full"
-                    >
-                      ⭐ {h}
-                    </span>
-                  ))}
-                </div>
-
+          
                 <Link
-                  href={`/iwatch/${watch.slug}`}
+                  href={`/product/${watch._id}`}
                   className="block text-center bg-pink-600 hover:bg-orange-700 text-white 
                              font-semibold py-3 rounded-xl transition shadow-md"
                 >

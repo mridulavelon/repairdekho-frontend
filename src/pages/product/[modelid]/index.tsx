@@ -512,9 +512,12 @@ const addProductInCart = () => {
       <div className="min-h-screen bg-white flex flex-col md:flex-row items-start justify-center p-4 md:p-10">
   <div className="w-full md:w-1/2 flex justify-center items-center p-4 md:p-10">
     <img
-      src={props.data.modelimagelink} // replace with your image path
-      alt="Mobile Model"
+      src={props.data.modelimagelink ||  "/images/no-preview.png"} 
+      alt={props.data.modelname}
       className="max-w-full max-h-screen object-contain "
+      onError={(e) => {
+          e.currentTarget.src = "/images/no-preview.png";
+      }}
     />
   </div>
   <div className="w-full md:w-1/2 flex flex-col items-center p-4 md:p-10">

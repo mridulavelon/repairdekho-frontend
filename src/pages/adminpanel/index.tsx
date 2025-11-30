@@ -273,7 +273,6 @@ export default function Adminpanel(props:any) {
 
 
 
-
     return (
       <>
           <Metaseo
@@ -321,6 +320,47 @@ export default function Adminpanel(props:any) {
              className="block w-full px-4 py-2 rounded-md text-base font-medium text-left hover:bg-gray-700">
               Offers
             </button>
+            <p className="font-semibold px-4 py-4 bg-black rounded-md">Content Management</p>
+            <button 
+             onClick={() => setActiveTab("homecms")}
+             className="block w-full px-4 py-2 rounded-md text-base font-medium text-left hover:bg-gray-700">
+              Home
+            </button>
+             <button 
+             onClick={() => setActiveTab("aboutcms")}
+             className="block w-full px-4 py-2 rounded-md text-base font-medium text-left hover:bg-gray-700">
+              About us
+            </button>
+            <button 
+             onClick={() => setActiveTab("aboutcms")}
+             className="block w-full px-4 py-2 rounded-md text-base font-medium text-left hover:bg-gray-700">
+              Repair My Device
+            </button>
+              <button 
+              onClick={() => setActiveTab("offerscms")}
+              className="block w-full px-4 py-2 rounded-md text-base font-medium text-left hover:bg-gray-700">
+              Offers
+            </button>
+            <button 
+              onClick={() => setActiveTab("blogcms")}
+              className="block w-full px-4 py-2 rounded-md text-base font-medium text-left hover:bg-gray-700">
+              Blogs
+            </button>
+            <button 
+              onClick={() => setActiveTab("blogcms")}
+              className="block w-full px-4 py-2 rounded-md text-base font-medium text-left hover:bg-gray-700">
+              FAQ
+            </button>
+            <button 
+              onClick={() => setActiveTab("blogcms")}
+              className="block w-full px-4 py-2 rounded-md text-base font-medium text-left hover:bg-gray-700">
+              Terms and Conditions
+            </button>
+            <button 
+              onClick={() => setActiveTab("blogcms")}
+              className="block w-full px-4 py-2 rounded-md text-base font-medium text-left hover:bg-gray-700">
+              Privacy Policy
+            </button>
           </nav>
         </aside>
   
@@ -347,6 +387,36 @@ export default function Adminpanel(props:any) {
           <a href="#" className={`block p-4 ${activeTab === "offers" ? "bg-red-500 text-white":"bg-white text-gray-500"} shadow rounded-md text-center`}>
             <span className="block text-lg font-medium" onClick={() => setActiveTab("offers")}>Offers</span>
           </a>
+          <p className="font-semibold py-4">Content Management</p>
+          <div>
+          <a href="#" className={`block p-4 ${activeTab === "offers" ? "bg-red-500 text-white":"bg-white text-gray-500"} shadow rounded-md text-center`}>
+            <span className="block text-lg font-medium" onClick={() => setActiveTab("homecms")}>Home</span>
+          </a>
+           <a href="#" className={`block p-4 ${activeTab === "offers" ? "bg-red-500 text-white":"bg-white text-gray-500"} shadow rounded-md text-center`}>
+            <span className="block text-lg font-medium" onClick={() => setActiveTab("repairmydevicecms")}>Repair My Device</span>
+          </a>
+          <a href="#" className={`block p-4 ${activeTab === "offers" ? "bg-red-500 text-white":"bg-white text-gray-500"} shadow rounded-md text-center`}>
+            <span className="block text-lg font-medium" onClick={() => setActiveTab("aboutcms")}>About us</span>
+          </a>
+          <a href="#" className={`block p-4 ${activeTab === "offers" ? "bg-red-500 text-white":"bg-white text-gray-500"} shadow rounded-md text-center`}>
+            <span className="block text-lg font-medium" onClick={() => setActiveTab("blogscms")}>Blogs</span>
+          </a>
+          <a href="#" className={`block p-4 ${activeTab === "offers" ? "bg-red-500 text-white":"bg-white text-gray-500"} shadow rounded-md text-center`}>
+            <span className="block text-lg font-medium" onClick={() => setActiveTab("offerscms")}>Offers</span>
+          </a>
+           <a href="#" className={`block p-4 ${activeTab === "offers" ? "bg-red-500 text-white":"bg-white text-gray-500"} shadow rounded-md text-center`}>
+            <span className="block text-lg font-medium" onClick={() => setActiveTab("offers")}>Contact us</span>
+          </a>
+            <a href="#" className={`block p-4 ${activeTab === "offers" ? "bg-red-500 text-white":"bg-white text-gray-500"} shadow rounded-md text-center`}>
+            <span className="block text-lg font-medium" onClick={() => setActiveTab("offers")}>FAQ</span>
+          </a>
+           <a href="#" className={`block p-4 ${activeTab === "offers" ? "bg-red-500 text-white":"bg-white text-gray-500"} shadow rounded-md text-center`}>
+            <span className="block text-lg font-medium" onClick={() => setActiveTab("offers")}>Privacy Policy</span>
+          </a>
+            <a href="#" className={`block p-4 ${activeTab === "offers" ? "bg-red-500 text-white":"bg-white text-gray-500"} shadow rounded-md text-center`}>
+            <span className="block text-lg font-medium" onClick={() => setActiveTab("offers")}>Terms and conditions</span>
+          </a>
+          </div>
         </div>
             {activeTab === "orders" && (
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-8">
@@ -441,6 +511,117 @@ export default function Adminpanel(props:any) {
               <p>Select an option from the sidebar</p>
             )}
 
+            {activeTab === "homecms" && (
+             <div className="space-y-4">
+
+  {/* <!-- Title Block --> */}
+  <div className="border rounded-lg p-4 shadow-sm bg-white">
+    <div className="flex justify-between items-center">
+      <div>
+        <h2 className="text-xl font-semibold">Hero Title</h2>
+        <p className="text-sm text-gray-600">
+          Value: Mobile Repair at Your Doorstep
+        </p>
+      </div>
+
+      <div className="flex gap-3">
+        <button className="px-3 py-1 bg-yellow-500 text-white rounded hover:bg-yellow-600">Edit</button>
+        <button className="px-3 py-1 bg-red-600 text-white rounded hover:bg-red-700">Delete</button>
+      </div>
+    </div>
+  </div>
+
+  {/* <!-- Subtitle Block --> */}
+  <div className="border rounded-lg p-4 shadow-sm bg-white">
+    <div className="flex justify-between items-center">
+      <div>
+        <h2 className="text-xl font-semibold">Hero Subtitle</h2>
+        <p className="text-sm text-gray-600">
+          Value: Friendly, fast & affordable. Get your smartphone fixed without leaving your home.
+        </p>
+      </div>
+
+      <div className="flex gap-3">
+        <button className="px-3 py-1 bg-yellow-500 text-white rounded hover:bg-yellow-600">Edit</button>
+        <button className="px-3 py-1 bg-red-600 text-white rounded hover:bg-red-700">Delete</button>
+      </div>
+    </div>
+  </div>
+
+  {/* <!-- Background Block --> */}
+  <div className="border rounded-lg p-4 shadow-sm bg-white">
+    <div className="flex justify-between items-center">
+      <div>
+        <h2 className="text-xl font-semibold">Background Class</h2>
+        <p className="text-sm text-gray-600">
+          Value: bg-orange-500
+        </p>
+      </div>
+
+      <div className="flex gap-3">
+        <button className="px-3 py-1 bg-yellow-500 text-white rounded hover:bg-yellow-600">Edit</button>
+        <button className="px-3 py-1 bg-red-600 text-white rounded hover:bg-red-700">Delete</button>
+      </div>
+    </div>
+  </div>
+
+  {/* <!-- Image Block --> */}
+  <div className="border rounded-lg p-4 shadow-sm bg-white">
+    <div className="flex justify-between items-center">
+      <div>
+        <h2 className="text-xl font-semibold">Hero Image</h2>
+        <p className="text-sm text-gray-600">
+          Value: /images/heroman.png
+        </p>
+      </div>
+
+      <div className="flex gap-3">
+        <button className="px-3 py-1 bg-yellow-500 text-white rounded hover:bg-yellow-600">Edit</button>
+        <button className="px-3 py-1 bg-red-600 text-white rounded hover:bg-red-700">Delete</button>
+      </div>
+    </div>
+  </div>
+
+  {/* <!-- Search Enabled --> */}
+  <div className="border rounded-lg p-4 shadow-sm bg-white">
+    <div className="flex justify-between items-center">
+      <div>
+        <h2 className="text-xl font-semibold">Search Enabled</h2>
+        <p className="text-sm text-gray-600">
+          Value: true
+        </p>
+      </div>
+
+      <div className="flex gap-3">
+        <button className="px-3 py-1 bg-yellow-500 text-white rounded hover:bg-yellow-600">Edit</button>
+        <button className="px-3 py-1 bg-red-600 text-white rounded hover:bg-red-700">Delete</button>
+      </div>
+    </div>
+  </div>
+
+  {/* <!-- Shapes Block --> */}
+  <div className="border rounded-lg p-4 shadow-sm bg-white">
+    <div className="flex justify-between items-center">
+      <div>
+        <h2 className="text-xl font-semibold">Shapes</h2>
+        <p className="text-sm text-gray-600">2 shapes found</p>
+
+        <ul className="mt-2 text-sm text-gray-700 list-disc list-inside">
+          <li>Shape 1 — type: circle, color: bg-pink-500, size: 160, position: top-10 left-10, opacity: 0.3</li>
+          <li>Shape 2 — type: square, color: bg-white, size: 96, position: top-32 left-32, opacity: 0.2, rotate: 45</li>
+        </ul>
+      </div>
+
+      <div className="flex gap-3">
+        <button className="px-3 py-1 bg-yellow-500 text-white rounded hover:bg-yellow-600">Edit</button>
+        <button className="px-3 py-1 bg-red-600 text-white rounded hover:bg-red-700">Delete</button>
+      </div>
+    </div>
+  </div>
+
+</div>
+            )}
+
             {editTab === "order" && (
               <Editorder
                 onClose={() => setEditTab("")} 
@@ -477,7 +658,7 @@ export default function Adminpanel(props:any) {
               />
             )}   
 
-             {editTab.includes("offer")  && (
+            {editTab.includes("offer")  && (
               <Offerform
                 type={editTab}
                 onClose={() => setEditTab("")} 
@@ -485,6 +666,7 @@ export default function Adminpanel(props:any) {
                 editdetails={editDetails}
               />
             )} 
+
   
           </div>
         </main>

@@ -58,7 +58,7 @@ export default function Homepage() {
     />
         <div className="bg-gray-50 text-gray-800 font-sans">
       {/* Hero Section */}
-     <section className="relative bg-orange-500 overflow-hidden px-6 py-10 sm:px-10 md:px-20">
+     <section className="relative bg-slate-100 overflow-hidden px-6 py-10 sm:px-10 md:px-20">
   {/* Background Shapes */}
   <div className="absolute top-0 left-0 w-full h-full pointer-events-none z-0">
     <div className="absolute w-40 h-40 bg-pink-500 rounded-full top-10 left-10 opacity-30"></div>
@@ -105,7 +105,7 @@ export default function Homepage() {
       {[
         {
           title: "Phone Repair",
-          image: "/images/ux-design.png",
+          image: "/images/app.png",
           description: "Cracked screens, battery issues, and more.",
           route: "/repairmydevice",
         },
@@ -113,19 +113,19 @@ export default function Homepage() {
           title: "Laptop Repair",
           image: "/images/content.png",
           description: "Keyboard issues, slow performance, or upgrades.",
-          route: "/repairmydevice",
+          route: "/laptop",
         },
         {
           title: "iWatch Repair",
           image: "/images/online-shop.png",
           description: "Battery replacement and screen repairs for smartwatches.",
-          route: "/repairmydevice",
+          route: "/iwatch",
         },
         {
           title: "iPad Repair",
-          image: "/images/app.png",
+          image: "/images/ux-design.png",
           description: "Restore your iPad to top performance and look.",
-          route: "/repairmydevice",
+          route: "/ipads",
         },
       ].map((service, index) => (
         <Link
@@ -133,7 +133,7 @@ export default function Homepage() {
         >
         <div
           key={index}
-          className="bg-zinc-900 text-slate-50 border border-orange-200 rounded-2xl p-6 hover:shadow-xl hover:-translate-y-2 transition-all duration-300 ease-in-out"
+          className="bg-pink-600 text-slate-50 border border-orange-200 rounded-2xl p-6 hover:shadow-xl hover:-translate-y-2 transition-all duration-300 ease-in-out"
         >
           <div className="h-32 flex items-center justify-center mb-4">
             <img
@@ -358,23 +358,6 @@ export default function Homepage() {
 </section>
 
 
-<section className="py-16 relative bg-[url('/images/girlthinking.jpg')] bg-no-repeat bg-cover">
-  <div className="container">
-    <div className="flex flex-wrap w-full justify-end py-28">
-      {/* Text Content */}
-      <div className="w-full lg:w-7/12 mt-10 lg:mt-0 px-4">
-        <div className="space-y-6 bg-white/60 backdrop-blur-sm p-8 rounded-xl shadow-md transition-all duration-700 hover:shadow-xl">
-          <h4 className="text-3xl font-bold text-gray-800">Our Thought Process and Execution</h4>
-          <p className="text-lg text-gray-700 leading-relaxed">
-            We look at the mobile repair industry from a new perspective. To implement this, we've launched a unique program where satisfaction meets quality. Your device is handled by professional, experienced technicians. And most importantly, <span className="font-semibold text-blue-700">we value your time, save your money, protect your data, and care about your device.</span>
-          </p>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
 
 <section className="clients-section py-20 bg-gradient-to-br from-[#fff1eb] via-[#ffdde1] to-[#fbc2eb]">
   <div className="container mx-auto px-4">
@@ -447,412 +430,3 @@ export default function Homepage() {
     </>
   )
 }
-
-
-
-
-{/* <section className="py-8 bg-gray-50">
-<div className="container mx-auto px-4">
-  <div className="flex flex-col md:flex-row items-center gap-x-6 gap-y-0 -mx-3">
-    <div className="w-full lg:w-5/12 xl:w-6/12 p-4">
-      <div>
-        <h3 className="text-3xl font-bold text-yellow-500 mb-4">We are Expert in</h3>
-        <div className="text-7xl font-extrabold text-sky-400 mb-4 font-roboto_slabregular">
-          MOBILE <br /> REPAIR<br /> SERVICES
-        </div>
-        <p className="text-2xl font-extrabold text-gray-600">
-          We Are Dedicated To Provide You Best Mobile Phone Repairing Services At Your Door Step.
-        </p>
-      </div>
-    </div>
-    <div className="w-full lg:w-7/12 xl:w-7/12">
-      <div className="roundimg">
-        <Image 
-          src="/images/home-page-banner.avif" 
-          alt="Mobile Repair Services" 
-          width={500} 
-          height={300} 
-          className="w-full rounded-lg shadow-lg"
-        />
-      </div>
-    </div>
-  </div>
-</div>
-</section>
-<section className="word-block-div section-space bg-gray-50">
-<div className="container mx-auto">
-<div className="flex justify-center">
-<div className="lg:w-7/12">
-  <h2 className="text-4xl mb-8 text-center  font-bold  md:text-center mt-10">Repair Service</h2>
-</div>
-</div>
-<div className="flex flex-col md:flex-row items-center gap-x-6 gap-y-0 -mx-3 px-6 mx-6">
-<div className="sm:flex sm:flex-none sm:w-1/2 lg:flex lg:flex-none lg:w-1/4">
-  <Link href="/repairmydevice" onClick={() =>  updateLoading(true)}>
-    <div className="wow fadeIn flex flex-col items-center mt-8" data-wow-delay=".4s">
-      <div className="sw-card sw-cl-2">
-        <div className="box-icons">
-          <img src="/images/app.png" alt="icon"  />
-        </div>
-        <div className="sw-cardinfo text-center">
-          <h3 className="text-2xl font-bold mt-4">Mobile</h3>
-        </div>
-      </div>
-    </div>
-  </Link>
-</div>
-<div className="sm:flex sm:flex-none sm:w-1/2 lg:flex lg:flex-none lg:w-1/4">
-  <Link href="/ipads">
-    <div className="wow fadeIn flex flex-col items-center mt-8" data-wow-delay=".6s">
-      <div className="sw-card sw-cl-2">
-        <div className="box-icons">
-          <img src="/images/ux-design.png" alt="icon" />
-        </div>
-        <div className="sw-cardinfo text-center">
-          <h3 className="text-2xl font-bold mt-4">iPad</h3>
-        </div>
-      </div>
-    </div>
-  </Link>
-</div>
-<div className="sm:flex sm:flex-none sm:w-1/2 lg:flex lg:flex-none lg:w-1/4">
-  <Link href="/laptops">
-    <div className="wow fadeIn flex flex-col items-center mt-8" data-wow-delay=".8s">
-      <div className="sw-card sw-cl-2">
-        <div className="box-icons">
-          <img src="/images/content.png" alt="icon"  />
-        </div>
-        <div className="sw-cardinfo text-center">
-          <h3 className="text-2xl font-bold mt-4">Laptop</h3>
-        </div>
-      </div>
-    </div>
-  </Link>
-</div>
-<div className="sm:flex sm:flex-none sm:w-1/2 lg:flex lg:flex-none lg:w-1/4">
-  <Link href="/applewatch">
-    <div className="wow fadeIn flex flex-col items-center mt-8" data-wow-delay="1s">
-      <div className="sw-card sw-cl-2">
-        <div className="box-icons">
-          <img src="/images/online-shop.png" alt="icon"  />
-        </div>
-        <div className="sw-cardinfo text-center">
-          <h3 className="text-2xl font-bold mt-4">Apple Watch</h3>
-        </div>
-      </div>
-    </div>
-  </Link>
-</div>
-</div>
-</div>
-</section>
-<section className="py-12 bg-gray-50">
-<div className="container mx-auto">
-<div className="flex flex-wrap justify-between items-end">
-<div className="w-full text-center mb-8">
-  <h2 className="text-4xl font-bold wow fadeInUp" data-wow-delay=".2s">Fix Your Gadgets in 3 Steps</h2>
-</div>
-</div>
-<div className="flex flex-wrap mt-8">
-<div className="w-full lg:w-1/3 p-4">
-<div className="border p-6 rounded-lg text-left transition duration-300 hover:border-red-500">
-    <div className="mb-4"><img src="/images/edit.png" alt="icon" className="w-14"/></div>
-    <h4 className="text-3xl font-semibold mb-5">Check Prices</h4>
-    <p>We understand your time is precious. Repair Dekho expert will fix your device within 30 minutes!</p>
-  </div>
-</div>
-<div className="w-full lg:w-1/3 p-4">
-<div className="border p-6 rounded-lg text-left transition duration-300 hover:border-red-500">
-    <div className="mb-4"><img src="/images/on-time.png" alt="icon" className="w-14"/></div>
-    <h4 className="text-3xl font-semibold mb-5">Fix An Appointment</h4>
-    <p>Choose the time according to your ease, Our Technicians will repair your device at your place according to the time provided by you.</p>
-  </div>
-</div>
-<div className="w-full lg:w-1/3 p-4">
-<div className="border p-6 rounded-lg text-left transition duration-300 hover:border-red-500">
-    <div className="mb-4"><img src="/images/feature.png" alt="icon" className="w-14"/></div>
-    <h4 className="text-3xl font-semibold mb-5">Repairing Done</h4>
-    <p>Get your device in a brand new condition after availing our repair services. We guarantee 99% customer satisfaction.</p>
-  </div>
-</div>
-</div>
-</div>
-</section>
-<section className="pb-8 bg-gray-50">
-<div className="container mx-auto">
-<div className="flex flex-wrap justify-between items-end mb-8">
-<div className="w-full text-center">
-  <h2 className="text-4xl font-bold wow fadeInUp" data-wow-delay=".2s">
-    Why Choose Repair Dekho
-  </h2>
-</div>
-</div>
-<div className="flex flex-wrap mt-8">
-<div className="w-full lg:w-1/3 p-4">
-  <div className="border p-6 rounded-lg text-left transition duration-300 hover:border-blue-500">
-    <div className="mb-4">
-      <img src="/images/edit.png" alt="icon" className="w-14"/>
-    </div>
-    <h4 className="text-3xl font-semibold mb-2">Quick Service</h4>
-    <p>We understand your time is precious. Repair Dekho expert will fix your device within 30 minutes!</p>
-  </div>
-</div>
-<div className="w-full lg:w-1/3 p-4">
-  <div className="border p-6 rounded-lg text-left transition duration-300 hover:border-green-500">
-    <div className="mb-4">
-      <img src="/images/doorstep-delivery.png" alt="icon" className="w-14"/>
-    </div>
-    <h4 className="text-3xl font-semibold mb-2">Free Doorstep Service</h4>
-    <p>Get premium mobile repair service at your doorstep with no additional cost.</p>
-  </div>
-</div>
-<div className="w-full lg:w-1/3 p-4">
-  <div className="border p-6 rounded-lg text-left transition duration-300 hover:border-red-500">
-    <div className="mb-4">
-      <img src="/images/feature.png" alt="icon" className="w-14"/>
-    </div>
-    <h4 className="text-3xl font-semibold mb-2">Transparency</h4>
-    <p>Repair Dekho provides complete, authoritative and timely declaration of information to its customers.</p>
-  </div>
-</div>
-<div className="w-full lg:w-1/3 p-4">
-  <div className="border p-6 rounded-lg text-left transition duration-300 hover:border-purple-500">
-    <div className="mb-4">
-      <img src="/images/expertise.png" alt="icon" className="w-14"/>
-    </div>
-    <h4 className="text-3xl font-semibold mb-2">Certified Professionals</h4>
-    <p>Repair Dekho technicians are professionally experienced. Rest assured, your device is in safe hands.</p>
-  </div>
-</div>
-<div className="w-full lg:w-1/3 p-4">
-  <div className="border p-6 rounded-lg text-left transition duration-300 hover:border-yellow-500">
-    <div className="mb-4">
-      <img src="/images/technical-support.png" alt="icon" className="w-14"/>
-    </div>
-    <h4 className="text-3xl font-semibold mb-2">6-Month Warranty</h4>
-    <p>We offer a 6-month warranty. Our team will share all the warranty-related information with you.</p>
-  </div>
-</div>
-<div className="w-full lg:w-1/3 p-4">
-  <div className="border p-6 rounded-lg text-left transition duration-300 hover:border-orange-500">
-    <div className="mb-4">
-      <img src="/images/update.png" alt="icon" className="w-14"/>
-    </div>
-    <h4 className="text-3xl font-semibold mb-2">E-waste management</h4>
-    <p>At Repair Dekho, e-waste is channelized to a registered recycler for their safe transportation and disposal.</p>
-  </div>
-</div>
-</div>
-</div>
-</section>
-<section className="py-12 pt-0 bg-gray-50">
-<div className="container mx-auto">
-<div className="flex flex-wrap justify-between items-center">
-<div className="w-full lg:w-12/12 mt-10">
-  <h2 className="text-4xl font-bold">Why People Trust Us</h2>
-  <p className="pt-5">
-    We help Individuals to get their device repaired with minimum efforts and minimum Budget.
-  </p>
-  <div className="mt-10">
-    <div className="flex items-start mb-8">
-      <div className="mr-4">
-        <img src="/images/experience.png" alt="icon" className="w-16"/>
-      </div>
-      <div>
-        <h5 className="text-xl font-semibold mb-2">One Stop Solution</h5>
-        <p>Pickup and Delivery, Upgrades and Repairs.</p>
-      </div>
-    </div>
-    <div className="flex items-start mb-8">
-      <div className="mr-4">
-        <img src="/images/on-time.png" alt="icon" className="w-16"/>
-      </div>
-      <div>
-        <h5 className="text-xl font-semibold mb-2">Trained Professionals</h5>
-        <p>Team of Experts ready to serve you anytime.</p>
-      </div>
-    </div>
-    <div className="flex items-start mb-8" >
-      <div className="mr-4">
-        <img src="/images/investment.png" alt="icon" className="w-16"/>
-      </div>
-      <div>
-        <h5 className="text-xl font-semibold mb-2">Quality Parts</h5>
-        <p>Certified, Genuine Parts Guaranteed.</p>
-      </div>
-    </div>
-    <div className="flex items-start">
-      <div className="mr-4">
-        <img src="/images/online-learning.png" alt="icon" className="w-16"/>
-      </div>
-      <div>
-        <h5 className="text-xl font-semibold mb-2">Transparency</h5>
-        <p>Authoritative and timely declaration of information to its customers.</p>
-      </div>
-    </div>
-  </div>
-</div>
-</div>
-</div>
-</section>
-<section className="py-12 bg-blue-100">
-<div className="container mx-auto">
-<div className="flex flex-wrap items-center">
-<div className="w-full lg:w-7/12">
-  <div className="space-y-6">
-    <span className="text-xl text-red-500 font-semibold dashbefore mb-4 animate__animated animate__fadeIn" style={{ animationDelay: '.2s', animationDuration: '1.5s' }}>- WHO WE ARE</span>
-    <h2 className="text-4xl font-bold mb-5 animate__animated animate__fadeIn" style={{ animationDelay: '.4s', animationDuration: '1.5s' }}>You Break, We Fix</h2>
-    <h5 className="text-2xl mb-5 animate__animated animate__fadeIn" style={{ animationDelay: '.6s', animationDuration: '1.5s' }}>Simplest Way To Get Your Mobile Fixed!</h5>
-    <p className="animate__animated animate__fadeIn" style={{ animationDelay: '.8s', animationDuration: '1.5s' }}>
-      Our aim is to provide every customer with a stress-free and exceptional experience and help you find the best possible solution. Providing a friendly, transparent and cost effective service, our team of experts can assist you with any issue from beginning to end.
-    </p>
-    <div className="mt-12 animate__animated animate__fadeIn" style={{ animationDelay: '.6s', animationDuration: '1.5s' }}>
-      <Link href="/repairmydevice" className="bg-blue-500 text-lg text-white font-bold py-4 px-10 rounded-full">Book Now</Link>
-    </div>
-  </div>
-</div>
-<div className="w-full lg:w-5/12 mt-10 lg:mt-0">
-  <div className="flex justify-center">
-    <div className="rounded-full overflow-hidden">
-      <img src="/images/repair-13.png" alt="img" />
-    </div>
-  </div>
-</div>
-</div>
-</div>
-</section>
-<section className="py-12 bg-gray-50">
-<div className="container mx-auto px-4">
-  <div className="flex flex-wrap items-center">
-      <div className="w-full lg:w-5/12 mt-10 lg:mt-0">
-          <div className="flex flex-wrap">
-              <div className="relative z-10">
-                  <div className="overflow-hidden rounded-full">
-                      <img src="/images/Our-Thought.png" alt="img" className="w-full h-auto"/>
-                  </div>
-              </div>
-          </div>
-      </div>
-      <div className="w-full lg:w-7/12">
-          <div className="space-y-4">
-              <h4 className="mb-5 text-2xl font-semibold fadeIn" data-wow-delay=".4s" data-wow-duration="1500ms">Our Thought process and execution</h4>
-              <p className="fadeIn" data-wow-delay=".8s" data-wow-duration="1500ms">
-                  We look at the Mobile repair industry from a new perspective. And to implement it, we have come up with a new program, in which you will get satisfaction along with quality services. Your device will be repaired by our professional and experienced technicians. And last but not least, "we value your time, we save your money, we protect your data and we care about your device".
-              </p>
-          </div>
-      </div>
-  </div>
-</div>
-</section>
-<section className="clients-section py-16 bg-gray-50">
-<div className="container mx-auto">
-<div className="flex justify-center">
-<div className="text-center lg:w-4/5">
-  <span className="text-lg italic mb-4 block wow fadeIn" data-wow-delay=".2s">Review/Feedback</span>
-  <h2 className="text-gradient-1 text-3xl font-bold wow fadeIn" data-wow-delay=".4s">What Our Happy Customer Says About Us</h2>
-</div>
-</div>
-<div className="mt-16">
-<div className="slider-divider responsive overflow-hidden">
-  <Slider {...settings}>
-    <div className="blueket-card-noise bg-white rounded-lg p-8 border-2">
-      <div className="flex items-center">
-        <div className="mr-4">
-          <img className="rounded-full" src="/images/user-image.jpg" alt="review"/>
-        </div>
-        <div>
-          <h5 className="font-bold">Karan Kumar</h5>
-          <p>CTO @ Amber Fund</p>
-        </div>
-      </div>
-      <div className="mt-8 mb-8">
-        <p>When it comes to website development and SEO, Blueket has been the best company I've worked with so far. We hired them for both of our businesses and have seen a drastic increase in our customer base.</p>
-      </div>
-      <div className="flex items-center justify-between">
-        <a href="#"><img src="/images/google.png" alt="icon" className="w-12"/></a>
-        <div className="flex">
-          <FontAwesomeIcon icon={faStar} aria-hidden="true" className="text-yellow-400"/>
-          <FontAwesomeIcon icon={faStar} aria-hidden="true" className="text-yellow-400"/>
-          <FontAwesomeIcon icon={faStar} aria-hidden="true" className="text-yellow-400"/>
-          <FontAwesomeIcon icon={faStar} aria-hidden="true" className="text-yellow-400"/>
-          <FontAwesomeIcon icon={faStar} aria-hidden="true" className="text-yellow-400"/>
-        </div>
-      </div>
-    </div>
-    <div className="blueket-card-noise bg-white rounded-lg p-8 border-2">
-      <div className="flex items-center">
-        <div className="mr-4">
-          <img className="rounded-full" src="/images/user-image-2.jpg" alt="review"/>
-        </div>
-        <div>
-          <h5 className="font-bold">Mike Smith</h5>
-          <p>Business Man</p>
-        </div>
-      </div>
-      <div className="mt-8 mb-8">
-        <p>When it comes to website development and SEO, Blueket has been the best company I've worked with so far. We hired them for both of our businesses and have seen a drastic increase in our customer base.</p>
-      </div>
-      <div className="flex items-center justify-between">
-        <a href="#"><img src="/images/google.png" alt="icon" className="w-12"/></a>
-        <div className="flex">
-          <FontAwesomeIcon icon={faStar} aria-hidden="true" className="text-yellow-400"/>
-          <FontAwesomeIcon icon={faStar} aria-hidden="true" className="text-yellow-400"/>
-          <FontAwesomeIcon icon={faStar} aria-hidden="true" className="text-yellow-400"/>
-          <FontAwesomeIcon icon={faStar} aria-hidden="true" className="text-yellow-400"/>
-          <FontAwesomeIcon icon={faStar} aria-hidden="true" className="text-yellow-400"/>
-        </div>
-      </div>
-    </div>
-    <div className="blueket-card-noise bg-white rounded-lg p-8 border-2">
-      <div className="flex items-center">
-        <div className="mr-4">
-          <img className="rounded-full" src="/images/user-image-3.jpg" alt="review" />
-        </div>
-        <div>
-          <h5 className="font-bold">Riya Smily</h5>
-          <p>CEO @ Tema Security</p>
-        </div>
-      </div>
-      <div className="mt-8 mb-8">
-        <p>When it comes to website development and SEO, Blueket has been the best company I've worked with so far. We hired them for both of our businesses and have seen a drastic increase in our customer base.</p>
-      </div>
-      <div className="flex items-center justify-between">
-        <a href="#"><img src="/images/google.png" alt="icon" className="w-12"/></a>
-        <div className="flex">
-          <FontAwesomeIcon icon={faStar} aria-hidden="true" className="text-yellow-400"/>
-          <FontAwesomeIcon icon={faStar} aria-hidden="true" className="text-yellow-400"/>
-          <FontAwesomeIcon icon={faStar} aria-hidden="true" className="text-yellow-400"/>
-          <FontAwesomeIcon icon={faStar} aria-hidden="true" className="text-yellow-400"/>
-          <FontAwesomeIcon icon={faStar} aria-hidden="true" className="text-yellow-400"/>
-        </div>
-      </div>
-    </div>
-    <div className="blueket-card-noise bg-white rounded-lg p-8 border-2">
-      <div className="flex items-center">
-        <div className="mr-4">
-          <img className="rounded-full" src="/images/user-image-4.jpg" alt="review"/>
-        </div>
-        <div>
-          <h5 className="font-bold">Oliver Kanjorva</h5>
-          <p>Business Man</p>
-        </div>
-      </div>
-      <div className="mt-8 mb-8">
-        <p>When it comes to website development and SEO, Blueket has been the best company I've worked with so far. We hired them for both of our businesses and have seen a drastic increase in our customer base.</p>
-      </div>
-      <div className="flex items-center justify-between">
-        <a href="#"><img src="/images/google.png" alt="icon" className="w-12"/></a>
-        <div className="flex">
-          <FontAwesomeIcon icon={faStar} aria-hidden="true" className="text-yellow-400"/>
-          <FontAwesomeIcon icon={faStar} aria-hidden="true" className="text-yellow-400"/>
-          <FontAwesomeIcon icon={faStar} aria-hidden="true" className="text-yellow-400"/>
-          <FontAwesomeIcon icon={faStar} aria-hidden="true" className="text-yellow-400"/>
-          <FontAwesomeIcon icon={faStar} aria-hidden="true" className="text-yellow-400"/>
-        </div>
-      </div>
-    </div>
-  </Slider>
-</div>
-</div>
-</div>
-</section> */}

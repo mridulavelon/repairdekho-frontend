@@ -122,7 +122,14 @@ export default function Repairmydevice({data}:any) {
     <div className="flex flex-wrap justify-center gap-4">
       {brands.map((brand: any) => (
         <div className="p-4 bg-white rounded-lg shadow-md"  onClick={() => getModels(brand?.value,"mobile")}>
-          <img src={brand?.imagelink} alt="Honor" className="object-contain w-32 h-32 duration-300 hover:scale-110"/>
+          <img 
+           src={brand?.imagelink || "/images/no-preview.png"} 
+           alt="Honor" 
+           className="object-contain w-32 h-32 duration-300 hover:scale-110"
+            onError={(e) => {
+    e.currentTarget.src = "/images/no-preview.png";
+  }}
+           />
           </div>
       ))}
     </div>
@@ -144,7 +151,14 @@ export default function Repairmydevice({data}:any) {
               <div className="p-4 bg-white rounded-lg shadow-md overflow-hidden w-40" key={model._id}>
                 <a href="#">
                   <div className="w-32 h-32 mx-auto bg-gray-200 flex items-center justify-center transform transition-transform duration-300 hover:scale-110">
-                    <img src={model.smallimagelink} className="max-h-full max-w-full object-contain" />
+                    <img 
+                     src={model.smallimagelink || "/images/no-preview.png"} 
+                     className="max-h-full max-w-full object-contain" 
+                     alt={model.modelname}
+                             onError={(e) => {
+    e.currentTarget.src = "/images/no-preview.png";
+  }}
+                     />
                   </div>
                 </a>
                 <div className="mt-2 text-center">

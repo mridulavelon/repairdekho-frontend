@@ -60,14 +60,17 @@ const ipadModels: IPad[] = [
 
 export default function IPadModels({ data }: any) {
   const [search, setSearch] = useState("");
+  const [ipads ,setIpads] = useState([]);
 
-  const filtered = ipadModels.filter((i) =>
-    i.name.toLowerCase().includes(search.toLowerCase())
+  const filtered = ipads.filter((i:any) =>
+    i.modelname.toLowerCase().includes(search.toLowerCase())
   );
 
   useEffect(() => {
-   console.log(data);
-  })
+   if(data?.response?.length > 0){
+    setIpads(data?.response);
+   }
+  },[])
 
   return (
     <>
@@ -101,47 +104,32 @@ export default function IPadModels({ data }: any) {
       <section className="py-20 bg-white">
         <div className="container mx-auto px-6">
           <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-3">
-            {filtered.map((ipad) => (
+            {filtered.map((ipad:any) => (
               <div
-                key={ipad.slug}
+                key={ipad.modelname}
                 className="bg-white rounded-3xl border border-slate-200 shadow-lg 
                            p-8 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300"
               >
                 <div className="w-full flex justify-center mb-6">
-                  <Image
-                    src="/images/ipad.png"
+                  <img
+                    src={ipad.smallimagelink || "/images/no-preview.png"}
                     width={250}
                     height={250}
-                    alt={ipad.name}
+                    alt={ipad.modelname}
                     className="rounded-xl object-cover transition-transform duration-300 hover:scale-105"
+                      onError={(e) => {
+    e.currentTarget.src = "/images/no-preview.png";
+  }}
                   />
                 </div>
 
                 <h3 className="text-2xl font-bold text-slate-900 mb-2">
-                  {ipad.name}
+                  {ipad.modelname}
                 </h3>
 
-                <p className="text-slate-600 mb-4">{ipad.description}</p>
-
-                {/* Chip */}
-                <p className="font-semibold text-orange-600 mb-4">
-                  🔥 Chip: {ipad.chip}
-                </p>
-
-                {/* Highlights */}
-                <div className="flex flex-wrap gap-2 mb-6">
-                  {ipad.highlights.map((h, i) => (
-                    <span
-                      key={i}
-                      className="bg-slate-100 text-xs text-slate-700 px-3 py-1 rounded-full"
-                    >
-                      ⭐ {h}
-                    </span>
-                  ))}
-                </div>
 
                 <Link
-                  href={`/ipad/${ipad.slug}`}
+                  href={`/product/${ipad._id}`}
                   className="block text-center bg-pink-600 hover:bg-orange-700 text-white 
                              font-semibold py-3 rounded-xl transition shadow-md"
                 >

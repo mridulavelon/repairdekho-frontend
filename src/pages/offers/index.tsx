@@ -65,9 +65,12 @@ export default function Offers({data}:any) {
         {/* Fallback Image Section */}
         <div className="h-48 bg-gray-100 flex items-center justify-center overflow-hidden">
           <img
-            src={offer.image || "/coupon-fallback.jpg"}
+            src={offer.image || "/images/no-preview.png"}
             alt={offer.label}
             className="w-full h-full object-cover"
+                onError={(e) => {
+          e.currentTarget.src = "/images/no-preview.png";
+      }}
           />
         </div>
 

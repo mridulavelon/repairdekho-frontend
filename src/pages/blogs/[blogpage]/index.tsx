@@ -34,7 +34,11 @@ export default function Blogpage({ data }:any) {
             <div className="mb-8 text-gray-700 leading-relaxed" dangerouslySetInnerHTML={{ __html: data.content }}></div>
             <div className="border-t-2 border-gray-200 my-8"></div>
             <div className="flex flex-col md:flex-row items-center space-x-0 md:space-x-4 space-y-4 md:space-y-0">
-            <img src="/images/company-logo.png" alt="brand-logo" className="w-32 mx-auto md:mx-0" />
+            <img 
+             src="/images/company-logo.png" 
+             alt="brand-logo" 
+             className="w-32 mx-auto md:mx-0" 
+             />
             <div className="text-center md:text-left">
               <h5 className="text-lg font-semibold text-gray-800">Repair Dekho Team</h5>
               <p className="text-gray-600">

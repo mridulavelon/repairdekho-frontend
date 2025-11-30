@@ -130,3 +130,10 @@ body {
 .react-datepicker__aria-live{
   display: none;
 }
+
+@media only screen and (min-width: 1024px) and (max-width: 1200px)  {
+.custom-menu-css li{
+  margin: 0px 3px;
+}
+   
+}
