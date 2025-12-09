@@ -123,11 +123,11 @@ export default function Repairmydevice({data}:any) {
       {brands.map((brand: any) => (
         <div className="p-4 bg-white rounded-lg shadow-md"  onClick={() => getModels(brand?.value,"mobile")}>
           <img 
-           src={brand?.imagelink || "/images/no-preview.png"} 
+           src={brand?.imagelink || "/images/no-preview.jpg"} 
            alt="Honor" 
            className="object-contain w-32 h-32 duration-300 hover:scale-110"
             onError={(e) => {
-    e.currentTarget.src = "/images/no-preview.png";
+    e.currentTarget.src = "/images/no-preview.jpg";
   }}
            />
           </div>
@@ -152,11 +152,11 @@ export default function Repairmydevice({data}:any) {
                 <a href="#">
                   <div className="w-32 h-32 mx-auto bg-gray-200 flex items-center justify-center transform transition-transform duration-300 hover:scale-110">
                     <img 
-                     src={model.smallimagelink || "/images/no-preview.png"} 
+                     src={model.smallimagelink || "/images/no-preview.jpg"} 
                      className="max-h-full max-w-full object-contain" 
                      alt={model.modelname}
                              onError={(e) => {
-    e.currentTarget.src = "/images/no-preview.png";
+    e.currentTarget.src = "/images/no-preview.jpg";
   }}
                      />
                   </div>

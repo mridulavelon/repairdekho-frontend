@@ -68,13 +68,13 @@ export default function IWatchModels({ data }: any) {
               >
                 <div className="w-full flex justify-center mb-6">
                   <img
-  src={watch.smallimagelink || "/images/no-preview.png"}
+  src={watch.smallimagelink || "/images/no-preview.jpg"}
   width={220}
   height={220}
   alt={watch.modelname}
   className="rounded-xl object-cover transition-transform duration-300 hover:scale-105"
   onError={(e) => {
-    e.currentTarget.src = "/images/no-preview.png";
+    e.currentTarget.src = "/images/no-preview.jpg";
   }}
 />
                 </div>

@@ -1,5 +1,5 @@
 import useStore from "@/lib/store";
-import { faTimes } from "@fortawesome/free-solid-svg-icons";
+import { faTimes,faUserPlus } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import axios from "axios";
 import { useFormik } from "formik";
@@ -71,13 +71,31 @@ export default function Register() {
         {showRegister && (
             <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50 px-4">
             <div className="bg-white rounded-lg shadow-lg overflow-hidden w-full max-w-6xl flex">
-            <div className="hidden md:block w-1/2 relative">
-      <img
-        src="https://img.freepik.com/premium-vector/online-registration-illustration-design-concept-websites-landing-pages-other_108061-938.jpg"
-        alt="Login"
-        className="w-full h-full object-cover"
-      />
+       <div className="hidden md:flex w-1/2 items-center justify-center bg-gradient-to-br from-green-500 via-teal-500 to-cyan-500 relative p-10 overflow-hidden">
+
+  {/* Ambient glowing shapes */}
+  <div className="absolute -top-14 -left-10 w-48 h-48 bg-white/20 rounded-full blur-3xl"></div>
+  <div className="absolute bottom-0 right-0 w-56 h-56 bg-white/10 rounded-full blur-2xl"></div>
+
+  {/* Content */}
+  <div className="relative z-10 text-center text-white px-6">
+    <div className="mb-6 flex items-center justify-center">
+      <div className="bg-white/20 backdrop-blur-md p-6 rounded-full shadow-lg shadow-black/20">
+        <FontAwesomeIcon icon={faUserPlus} className="text-4xl" />
+      </div>
     </div>
+
+    <h2 className="text-3xl font-bold mb-3 tracking-wide">
+      Create Your Account
+    </h2>
+
+    <p className="text-lg font-semibold opacity-90">
+      Join us today and start booking your fast  
+      and reliable repair services seamlessly.
+    </p>
+  </div>
+</div>
+
               <div className="w-full md:w-1/2 p-8 relative">
                 <button
                   className="absolute top-2 right-2 text-gray-600 hover:text-gray-800 focus:outline-none"
@@ -161,7 +179,7 @@ export default function Register() {
                   </div>
                   <button
                     type="submit"
-                    className="w-full bg-orange-500 text-white py-2 rounded-lg hover:bg-blue-600 transition duration-300"
+                    className="w-full bg-pink-600 text-white py-2 rounded-full hover:bg-blue-600 transition duration-300"
                   >
                     {showLoading ? (
                         <div className="flex items-center justify-center">
@@ -171,14 +189,8 @@ export default function Register() {
                       <>Submit</>
                     )}
                   </button>
-                  <button
-                    className="w-full bg-green-500 text-white py-2 rounded-lg hover:bg-gray-600 transition duration-300 mt-2"
-                    onClick={handleShowLogin}
-                 >
-                    Login
-                  </button>
-                  <div className="text-right text-blue-500 underline mt-2" onClick={handleShowLogin}>
-                      Already have an account?
+                  <div className="flex justify-center gap-2 font-semibold py-4" onClick={handleShowLogin}>
+                      Already have an account? Please <span className="text-pink-600">Login</span>
                   </div>
                 </form>
                 <div className="text-center mt-4">

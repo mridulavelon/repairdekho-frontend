@@ -60,11 +60,11 @@ export default function Blogs({data}:any) {
         className="bg-white border border-gray-200 rounded-2xl shadow hover:shadow-xl transition overflow-hidden"
       >
         <img
-          src={blog.cover || "/images.no-preview.png"}
+          src={blog.cover || "/images.no-preview.jpg"}
           alt={blog.title}
           className="w-full h-48 object-cover transition-transform duration-300 hover:scale-105"
                    onError={(e) => {
-                    e.currentTarget.src = "/images/no-preview.png";
+                    e.currentTarget.src = "/images/no-preview.jpg";
                 }}
         />
 

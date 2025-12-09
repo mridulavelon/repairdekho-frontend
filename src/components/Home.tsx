@@ -1,14 +1,72 @@
 import Image from "next/image";
 import Link from "next/link";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPhone, faShield, faStar, faWrench } from '@fortawesome/free-solid-svg-icons';
+import { faPhone, faShield, faStar, faWrench,faSearch  } from '@fortawesome/free-solid-svg-icons';
 import Slider from "react-slick";
 import useStore from "@/lib/store";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import Metaseo from "./Metaseo";
 import DeviceSearch from "./DeviceSearch";
+
+const slides = [
+  {
+    title: "Cracked Screen? We’ll Fix It!",
+    subtitle: "Fast, affordable, and professional mobile repair.",
+    image:
+      "/images/repair-carousel-image.png",
+  },
+  {
+    title: "Battery Draining Fast?",
+    subtitle: "Get your phone battery replaced by certified experts.",
+    image:
+      "/images/repair-guy2.png",
+  },
+  {
+    title: "Doorstep Mobile Repair Service!",
+    subtitle: "We repair your device right at your home.",
+    image:
+      "/images/repair-guy4.png",
+  },
+];
+
 export default function Homepage() {
   const { updateLoading } = useStore();
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const [query, setQuery] = useState("");
+  const [results, setResults] = useState<any[]>([]);
+
+  useEffect(() => {
+    const slideTimer = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % slides.length);
+    }, 4500);
+    return () => clearInterval(slideTimer);
+  }, []);
+
+  // Fake results – replace with your API
+  const fakeData = [
+    "iPhone 14 Screen Repair",
+    "Samsung S22 Battery Replacement",
+    "OnePlus Nord Back Panel Change",
+    "Vivo Charging Issue",
+    "Oppo Display Repair",
+    "iPhone 11 Speaker Problem",
+    "Xiaomi Motherboard Repair",
+  ];
+
+  const handleSearch = (value: string) => {
+    setQuery(value);
+
+    if (!value.trim()) {
+      setResults([]);
+      return;
+    }
+
+    const filtered = fakeData.filter((item) =>
+      item.toLowerCase().includes(value.toLowerCase())
+    );
+
+    setResults(filtered);
+  };
     const settings = {
         dots: true,
         infinite: true,
@@ -57,44 +115,85 @@ export default function Homepage() {
      urlslug={''}
     />
         <div className="bg-gray-50 text-gray-800 font-sans">
-      {/* Hero Section */}
-     <section className="relative bg-slate-100 overflow-hidden px-6 py-10 sm:px-10 md:px-20">
-  {/* Background Shapes */}
-  <div className="absolute top-0 left-0 w-full h-full pointer-events-none z-0">
-    <div className="absolute w-40 h-40 bg-pink-500 rounded-full top-10 left-10 opacity-30"></div>
-    <div className="absolute w-24 h-24 bg-white rotate-45 top-32 left-32 opacity-20"></div>
-    <div className="absolute w-32 h-32 bg-fuchsia-600 rounded-full bottom-10 right-10 opacity-40"></div>
-    <div className="absolute w-16 h-16 bg-pink-300 rounded-full bottom-28 left-20 opacity-50"></div>
-  </div>
 
-  <div className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-12 max-w-7xl mx-auto">
-    {/* Left content */}
-    <div className="text-center md:text-left max-w-xl">
-      <h1 className="text-4xl sm:text-5xl font-extrabold text-gray-900 mb-4 leading-tight">
-        Mobile Repair at Your Doorstep
-      </h1>
-      <p className="text-lg text-gray-800 mb-6">
-        Friendly, fast & affordable. Get your smartphone fixed without leaving your home.
-      </p>
 
-      {/* Search Bar */}
-      <DeviceSearch/>
-    </div>
+  <section className="w-full h-[90vh] relative overflow-hidden bg-gray-100">
+      {/* SLIDES */}
+      <div
+        className="flex h-full transition-all duration-700"
+        style={{ transform: `translateX(-${currentSlide * 100}%)` }}
+      >
+        {slides.map((slide, index) => (
+          <div
+            key={index}
+            className="min-w-full flex flex-col md:flex-row items-center justify-between px-6 md:px-16 lg:px-28"
+          >
+            {/* LEFT TEXT */}
+            <div className="w-full md:w-1/2 space-y-4 md:space-y-6 mt-10 md:mt-0">
+              <h1 className="text-4xl md:text-5xl font-extrabold leading-tight text-gray-900">
+                {slide.title}
+              </h1>
+              <p className="text-lg md:text-xl text-gray-600">
+                {slide.subtitle}
+              </p>
 
-    {/* Right image */}
-    <div className="hidden w-full lg:flex justify-end">
-      <Image
-        src="/images/heroman.png"
-        alt="User with mobile phone"
-        width={1000}
-        height={1000}
-        className="object-cover h-auto w-full"
-        priority
-      />
-    </div>
-  </div>
-</section>
+              {/* SEARCH BAR */}
+              <div className="relative">
+                <div className="flex items-center bg-white rounded-full shadow-xl px-4 py-3">
+                  {/* <FontAwesomeIcon
+                    icon={faSearch}
+                    className="text-gray-500 text-lg mr-3"
+                  /> */}
+                  <input
+                    type="text"
+                    className="w-full outline-none text-gray-700 text-base"
+                    placeholder="Search repair services, problems, issues..."
+                    value={query}
+                    onChange={(e) => handleSearch(e.target.value)}
+                  />
+                </div>
 
+                {/* SEARCH RESULTS */}
+                {results.length > 0 && (
+                  <div className="absolute w-full bg-white shadow-lg rounded-xl mt-2 max-h-60 overflow-auto z-20">
+                    {results.map((item, idx) => (
+                      <div
+                        key={idx}
+                        className="px-4 py-3 hover:bg-gray-100 cursor-pointer border-b last:border-none"
+                      >
+                        {item}
+                      </div>
+                    ))}
+                  </div>
+                )}
+              </div>
+            </div>
+
+            {/* RIGHT IMAGE */}
+            <div className="hidden w-full md:w-1/2 md:flex justify-center">
+              <img
+                src={slide.image}
+                alt="Slide"
+                className="w-[90%] md:w-[80%] drop-shadow-xl"
+              />
+            </div>
+          </div>
+        ))}
+      </div>
+
+      {/* DOT INDICATORS */}
+      <div className="absolute bottom-5 left-1/2 transform -translate-x-1/2 flex gap-3">
+        {slides.map((_, idx) => (
+          <div
+            key={idx}
+            onClick={() => setCurrentSlide(idx)}
+            className={`w-4 h-4 rounded-full cursor-pointer transition-all duration-300 ${
+              currentSlide === idx ? "bg-blue-600 scale-125" : "bg-gray-300"
+            }`}
+          ></div>
+        ))}
+      </div>
+    </section>
      
     <section className="bg-white py-20 px-4 md:px-10">
   <div className="max-w-7xl mx-auto text-center">
