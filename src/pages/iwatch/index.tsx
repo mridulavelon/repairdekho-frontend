@@ -30,31 +30,51 @@ export default function IWatchModels({ data }: any) {
   return (
     <>
       {/* HERO SECTION */}
-      <section className="bg-gradient-to-br from-orange-100 via-white to-slate-100 py-24">
-        <div className="container mx-auto px-6">
+  <section className="bg-gradient-to-br from-orange-100 via-white to-slate-100 py-24">
+  <div className="container mx-auto px-6">
+    <div className="grid grid-cols-1 md:grid-cols-2 items-center gap-12">
 
-          <h1 className="text-5xl font-medium text-slate-900 mb-4">
-            Explore the Apple Watch Lineup
-          </h1>
+      {/* LEFT CONTENT */}
+      <div>
+        <h1 className="text-5xl font-medium text-slate-900 mb-4">
+          Explore the Apple Watch Lineup
+        </h1>
 
-          <p className="text-lg text-slate-600 max-w-xl leading-relaxed">
-            Find the perfect Apple Watch to track your fitness, stay connected, 
-            and achieve more — right from your wrist.
-          </p>
+        <p className="text-lg text-slate-600 max-w-xl leading-relaxed">
+          Find the perfect Apple Watch to track your fitness, stay connected,
+          and achieve more — right from your wrist.
+        </p>
 
-          {/* SEARCH */}
-          <div className="mt-8 max-w-md">
-            <input
-              type="text"
-              placeholder="Search Apple Watch models..."
-              value={search}
-              onChange={(e) => setSearch(e.target.value)}
-              className="w-full px-5 py-3 rounded-xl border border-slate-300 
-                         shadow-sm focus:ring-2 focus:ring-orange-500 outline-none transition"
-            />
-          </div>
+        {/* SEARCH */}
+        <div className="mt-8 max-w-md">
+          <input
+            type="text"
+            placeholder="Search Apple Watch models..."
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
+            className="w-full px-5 py-3 rounded-xl border border-slate-300 
+                       shadow-sm focus:ring-2 focus:ring-orange-500 
+                       outline-none transition"
+          />
         </div>
-      </section>
+      </div>
+
+      {/* RIGHT IMAGE */}
+      <div className="relative flex justify-center md:justify-end">
+        <div className="relative w-[300px] md:w-[420px]">
+          <img
+            src="https://m.media-amazon.com/images/I/7158cliU8vL._AC_UF1000,1000_QL80_.jpg" 
+            alt="Apple Watch"
+            width={300}
+            height={300}
+            className="object-contain drop-shadow-2xl"
+          />
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
 
       {/* WATCH LISTING GRID */}
       <section className="py-20 bg-white">

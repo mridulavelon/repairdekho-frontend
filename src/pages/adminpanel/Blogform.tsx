@@ -50,7 +50,7 @@ export default function Blogform({type,onClose,onSubmit,editdetails} :any) {
             "title": title,
             "summary":summary,
             "blogurl": title.replace(/[^a-zA-Z0-9\s]/g, '').replace(/\s+/g, '-').toLowerCase(),
-            "cover":convertToThumbnailLink(cover),
+            "cover":cover.includes("https://drive.google.com") ? cover : convertToThumbnailLink(cover),
             "content":content,
             "timestamp":new Date()
         }

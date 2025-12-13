@@ -64,6 +64,7 @@ export default function Modelform({type,onClose,onSubmit,editdetails,brands} :an
         },
         validationSchema: schema,
         onSubmit: async ({ brand,devicetype,modelname,modelimagelink,touch,battery,charging,backpanel,tempered,speaker,receiver,glass,displaylocal,displaybranded,displayoled }) => {
+           console.log(modelimagelink, "modelimagelink")
             setShowLoading(true); 
             const payloadData = {
             ...(type === "editmodel" && {"id":editdetails?._id}),
@@ -78,8 +79,8 @@ export default function Modelform({type,onClose,onSubmit,editdetails,brands} :an
             "speaker":speaker,
             "receiver":receiver,
             "glass":glass,
-            "modelimagelink":convertToThumbnailLink(modelimagelink),
-            "smallimagelink":convertToThumbnailLink(modelimagelink),
+            "modelimagelink": modelimagelink.includes("https://drive.google.com") ? modelimagelink : convertToThumbnailLink(modelimagelink),
+            "smallimagelink": modelimagelink.includes("https://drive.google.com") ? modelimagelink : convertToThumbnailLink(modelimagelink),
             "display":{
                 "oled":displayoled,
                 "local":displaylocal,

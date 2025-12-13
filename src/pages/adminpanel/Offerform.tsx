@@ -49,7 +49,7 @@ export default function Offerform({type,onClose,onSubmit,editdetails} :any) {
             "discountpercent":discountpercent,
             "applicableservice":applicableservice,
             "infotext":infotext,
-            "imagelink":convertToThumbnailLink(imagelink),
+            "imagelink": imagelink.includes("https://drive.google.com") ? imagelink : convertToThumbnailLink(imagelink),
         }
         await onSubmit(type,payloadData);
         setShowLoading(false);

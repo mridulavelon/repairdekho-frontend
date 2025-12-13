@@ -117,83 +117,93 @@ export default function Homepage() {
         <div className="bg-gray-50 text-gray-800 font-sans">
 
 
-  <section className="w-full h-[90vh] relative overflow-hidden bg-gray-100">
-      {/* SLIDES */}
+
+<section className="w-full relative overflow-hidden bg-gray-100 pt-24 pb-20 md:pt-0 md:h-[90vh]">
+  
+  {/* SLIDES */}
+  <div
+    className="flex transition-transform duration-700 ease-in-out"
+    style={{ transform: `translateX(-${currentSlide * 100}%)` }}
+  >
+    {slides.map((slide, index) => (
       <div
-        className="flex h-full transition-all duration-700"
-        style={{ transform: `translateX(-${currentSlide * 100}%)` }}
+        key={index}
+        className="min-w-full flex flex-col md:flex-row 
+                   items-center justify-center md:justify-between
+                   px-6 md:px-16 lg:px-28
+                   text-center md:text-left"
       >
-        {slides.map((slide, index) => (
-          <div
-            key={index}
-            className="min-w-full flex flex-col md:flex-row items-center justify-between px-6 md:px-16 lg:px-28"
-          >
-            {/* LEFT TEXT */}
-            <div className="w-full md:w-1/2 space-y-4 md:space-y-6 mt-10 md:mt-0">
-              <h1 className="text-4xl md:text-5xl font-extrabold leading-tight text-gray-900">
-                {slide.title}
-              </h1>
-              <p className="text-lg md:text-xl text-gray-600">
-                {slide.subtitle}
-              </p>
+        {/* LEFT TEXT */}
+        <div className="w-full md:w-1/2 space-y-4">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-gray-900">
+            {slide.title}
+          </h1>
 
-              {/* SEARCH BAR */}
-              <div className="relative">
-                <div className="flex items-center bg-white rounded-full shadow-xl px-4 py-3">
-                  {/* <FontAwesomeIcon
-                    icon={faSearch}
-                    className="text-gray-500 text-lg mr-3"
-                  /> */}
-                  <input
-                    type="text"
-                    className="w-full outline-none text-gray-700 text-base"
-                    placeholder="Search repair services, problems, issues..."
-                    value={query}
-                    onChange={(e) => handleSearch(e.target.value)}
-                  />
-                </div>
+          <p className="text-base sm:text-lg md:text-xl text-gray-600">
+            {slide.subtitle}
+          </p>
+        </div>
 
-                {/* SEARCH RESULTS */}
-                {results.length > 0 && (
-                  <div className="absolute w-full bg-white shadow-lg rounded-xl mt-2 max-h-60 overflow-auto z-20">
-                    {results.map((item, idx) => (
-                      <div
-                        key={idx}
-                        className="px-4 py-3 hover:bg-gray-100 cursor-pointer border-b last:border-none"
-                      >
-                        {item}
-                      </div>
-                    ))}
-                  </div>
-                )}
+        {/* RIGHT IMAGE (DESKTOP ONLY) */}
+        <div className="hidden md:flex w-1/2 justify-center">
+          <img
+            src={slide.image}
+            alt="Slide"
+            className="w-[80%] drop-shadow-xl"
+          />
+        </div>
+      </div>
+    ))}
+  </div>
+
+  {/* SEARCH BAR (FIXED BELOW TEXT, NOT SLIDING) */}
+  <div className="relative z-20 mt-10 px-6 md:px-16 lg:px-28">
+    <div className="max-w-xl mx-auto md:mx-0">
+      <div className="relative">
+        <div className="flex items-center bg-white rounded-full shadow-xl px-5 py-3">
+          <input
+            type="text"
+            className="w-full outline-none text-gray-700 text-base"
+            placeholder="Search repair services, problems, issues..."
+            value={query}
+            onChange={(e) => handleSearch(e.target.value)}
+          />
+        </div>
+
+        {results.length > 0 && (
+          <div className="absolute w-full bg-white shadow-lg rounded-xl mt-2 max-h-60 overflow-auto">
+            {results.map((item, idx) => (
+              <div
+                key={idx}
+                className="px-4 py-3 hover:bg-gray-100 cursor-pointer border-b last:border-none"
+              >
+                {item}
               </div>
-            </div>
-
-            {/* RIGHT IMAGE */}
-            <div className="hidden w-full md:w-1/2 md:flex justify-center">
-              <img
-                src={slide.image}
-                alt="Slide"
-                className="w-[90%] md:w-[80%] drop-shadow-xl"
-              />
-            </div>
+            ))}
           </div>
-        ))}
+        )}
       </div>
+    </div>
+  </div>
 
-      {/* DOT INDICATORS */}
-      <div className="absolute bottom-5 left-1/2 transform -translate-x-1/2 flex gap-3">
-        {slides.map((_, idx) => (
-          <div
-            key={idx}
-            onClick={() => setCurrentSlide(idx)}
-            className={`w-4 h-4 rounded-full cursor-pointer transition-all duration-300 ${
-              currentSlide === idx ? "bg-blue-600 scale-125" : "bg-gray-300"
-            }`}
-          ></div>
-        ))}
-      </div>
-    </section>
+  {/* DOT INDICATORS */}
+  <div className="absolute bottom-5 left-1/2 -translate-x-1/2 flex gap-3 z-20">
+    {slides.map((_, idx) => (
+      <div
+        key={idx}
+        onClick={() => setCurrentSlide(idx)}
+        className={`w-3 h-3 rounded-full cursor-pointer transition-all duration-300 ${
+          currentSlide === idx
+            ? "bg-blue-600 scale-125"
+            : "bg-gray-300"
+        }`}
+      />
+    ))}
+  </div>
+</section>
+
+
+
      
     <section className="bg-white py-20 px-4 md:px-10">
   <div className="max-w-7xl mx-auto text-center">

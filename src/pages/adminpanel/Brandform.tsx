@@ -43,7 +43,7 @@ export default function Brandform({type,onClose,onSubmit,editdetails} :any) {
             ...(type === "editbrand" && {"id":editdetails?._id}),
             "name":name,
             "value":name.toLowerCase(),
-            "imagelink":convertToThumbnailLink(imagelink),
+            "imagelink":imagelink.includes("https://drive.google.com") ? imagelink : convertToThumbnailLink(imagelink),
         }
         await onSubmit(type,payloadData);
         setShowLoading(false);  

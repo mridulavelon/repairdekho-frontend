@@ -83,7 +83,7 @@ export default function Footer() {
     <hr className="my-8 border-gray-300" />
 
     {/* BOTTOM COPYRIGHT */}
-    <div className="text-center text-sm text-gray-600">
+    <div className="text-center text-sm text-white">
       © 2025 <span className="font-semibold">repairDekho</span>. All rights reserved.
     </div>
   </div>

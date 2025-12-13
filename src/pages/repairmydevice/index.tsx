@@ -166,7 +166,7 @@ export default function Repairmydevice({data}:any) {
                 </div>
                 <div className="flex justify-center mt-4">
                   <Link href={`/product/${model._id}`} onClick={() => updateLoading(true)}>
-                  <button className="bg-orange-500 text-white py-2 px-8 rounded-full hover:bg-blue-700 transition duration-300">
+                  <button className="bg-pink-600 text-white py-2 px-8 rounded-full hover:bg-blue-700 transition duration-300">
                     Next
                   </button>
                   </Link>

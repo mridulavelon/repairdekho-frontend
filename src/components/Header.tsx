@@ -88,20 +88,51 @@ const Header = () => {
         </button>
 
         {showDropdown && (
-          <div className="absolute mt-2 w-28 right-22 bg-white rounded-md shadow-lg z-10">
-            <ul>
-              <Link href={userInfo.username === "repairdekhoadmin" ? "/adminpanel" : "/profile"}>
-                <li className="px-4 py-2 hover:bg-gray-100 cursor-pointer flex items-center font-bold">
-                  <FontAwesomeIcon icon={faUser} className="mr-2" /> Profile
-                </li>
-              </Link>
-              <li
-                className="px-4 py-2 hover:bg-gray-100 cursor-pointer flex items-center font-bold"
-                onClick={() => signOut()}
-              >
-                <FontAwesomeIcon icon={faArrowRightFromBracket} className="mr-2" /> Logout
-              </li>
-            </ul>
+          <div className="absolute mt-2 w-60 right-4 bg-white rounded-md shadow-lg z-10">
+            <ul className="py-2">
+
+    {/* ACCOUNT */}
+    <Link href={userInfo.username === "repairdekhoadmin" ? "/adminpanel" : "/account"}>
+      <li className="flex items-center px-4 py-3 cursor-pointer hover:bg-gray-100/70 transition-all duration-200 rounded-lg mx-2 text-gray-700 font-semibold">
+        <div className="w-8 h-8 flex items-center justify-center rounded-full bg-blue-100 text-blue-600 mr-3">
+          <FontAwesomeIcon icon={faUserGear} />
+        </div>
+        Account
+      </li>
+    </Link>
+
+    {/* ORDERS */}
+    <Link href="/orders">
+      <li className="flex items-center px-4 py-3 cursor-pointer hover:bg-gray-100/70 transition-all duration-200 rounded-lg mx-2 text-gray-700 font-semibold">
+        <div className="w-8 h-8 flex items-center justify-center rounded-full bg-green-100 text-green-600 mr-3">
+          <FontAwesomeIcon icon={faBoxOpen} />
+        </div>
+        My Orders
+      </li>
+    </Link>
+
+    {/* MANAGE ADDRESSES */}
+    <Link href="/addresses">
+      <li className="flex items-center px-4 py-3 cursor-pointer hover:bg-gray-100/70 transition-all duration-200 rounded-lg mx-2 text-gray-700 font-semibold">
+        <div className="w-8 h-8 flex items-center justify-center rounded-full bg-purple-100 text-purple-600 mr-3">
+          <FontAwesomeIcon icon={faAddressCard} />
+        </div>
+      Manage Address
+      </li>
+    </Link>
+
+    {/* LOGOUT */}
+    <li
+      className="flex items-center px-4 py-3 cursor-pointer hover:bg-red-50 transition-all duration-200 rounded-lg mx-2 text-gray-700 font-semibold"
+      onClick={() => signOut()}
+    >
+      <div className="w-8 h-8 flex items-center justify-center rounded-full bg-red-100 text-red-600 mr-3">
+        <FontAwesomeIcon icon={faArrowRightFromBracket} />
+      </div>
+      Logout
+    </li>
+
+  </ul>
           </div>
         )}
       </span>
@@ -116,7 +147,7 @@ const Header = () => {
 
   <ul
     className={`lg:flex lg:items-center custom-menu-css lg:z-auto lg:static absolute w-full left-0 lg:w-auto lg:py-0 py-4 lg:pl-0 pl-7 transition-all ease-in duration-500 ${
-      showMenu ? "top-16 opacity-100" : "top-[-600px] opacity-100"
+      showMenu ? "top-18 bg-pink-600 text-white opacity-100" : "top-[-600px] opacity-100"
     }`}
   >
    
@@ -168,7 +199,7 @@ const Header = () => {
         </button>
 
         {showDropdown && (
-   <div className="lg:absolute mt-3 w-64 bg-white/90 backdrop-blur-xl rounded-xl shadow-xl border border-gray-100 z-20 animate-fadeIn right-4">
+   <div className="hidden lg:block lg:absolute mt-3 w-64 bg-white/90 backdrop-blur-xl rounded-xl shadow-xl border border-gray-100 z-20 animate-fadeIn right-4">
   <ul className="py-2">
 
     {/* ACCOUNT */}
@@ -214,8 +245,6 @@ const Header = () => {
 
   </ul>
 </div>
-
-
         )}
       </li>
     )}
