@@ -10,22 +10,12 @@ import { toast } from "react-toastify";
 export default function Blogform({type,onClose,onSubmit,editdetails} :any) {
     const [showLoading,setShowLoading] = useState(false);
 
-    const convertToThumbnailLink = (driveLink:string) => {
+  const convertToThumbnailLink = (driveLink:string) => {
       const fileIdMatch = driveLink.match(/\/d\/(.*?)\//);
-      if (!fileIdMatch || fileIdMatch.length < 2) {
-        setShowLoading(false);  
-        resetForm();
-        onClose();
-        toast.error("Invalid Google Drive link",{
-          theme:"colored",
-          position:"top-center"
-        })
-        throw new Error("Invalid Google Drive link");
-      }
-      const fileId = fileIdMatch[1];
+      const fileId = fileIdMatch && fileIdMatch?.length > 0 ? fileIdMatch[1] : driveLink;
       const thumbnailLink = `https://drive.google.com/thumbnail?id=${fileId}&sz=w1000`;
       return thumbnailLink;
-  }
+    }
 
     const ReactQuill = useMemo(() => dynamic(() => import('react-quill'), { ssr: false }),[]);
     const schema = Yup.object().shape({
@@ -50,7 +40,7 @@ export default function Blogform({type,onClose,onSubmit,editdetails} :any) {
             "title": title,
             "summary":summary,
             "blogurl": title.replace(/[^a-zA-Z0-9\s]/g, '').replace(/\s+/g, '-').toLowerCase(),
-            "cover":cover.includes("https://drive.google.com") ? cover : convertToThumbnailLink(cover),
+            "cover":  convertToThumbnailLink(cover),
             "content":content,
             "timestamp":new Date()
         }

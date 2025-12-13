@@ -11,17 +11,7 @@ export default function Modelform({type,onClose,onSubmit,editdetails,brands} :an
 
     const convertToThumbnailLink = (driveLink:string) => {
       const fileIdMatch = driveLink.match(/\/d\/(.*?)\//);
-      if (!fileIdMatch || fileIdMatch.length < 2) {
-        toast.error("Invalid Google Drive link",{
-          theme:"colored",
-          position:"top-center"
-        })
-        setShowLoading(false); 
-        resetForm();
-        onClose();
-        throw new Error("Invalid Google Drive link");
-      }
-      const fileId = fileIdMatch[1];
+      const fileId = fileIdMatch && fileIdMatch?.length > 0 ? fileIdMatch[1] : driveLink;
       const thumbnailLink = `https://drive.google.com/thumbnail?id=${fileId}&sz=w1000`;
       return thumbnailLink;
     }
@@ -79,8 +69,8 @@ export default function Modelform({type,onClose,onSubmit,editdetails,brands} :an
             "speaker":speaker,
             "receiver":receiver,
             "glass":glass,
-            "modelimagelink": modelimagelink.includes("https://drive.google.com") ? modelimagelink : convertToThumbnailLink(modelimagelink),
-            "smallimagelink": modelimagelink.includes("https://drive.google.com") ? modelimagelink : convertToThumbnailLink(modelimagelink),
+            "modelimagelink": convertToThumbnailLink(modelimagelink),
+            "smallimagelink": convertToThumbnailLink(modelimagelink),
             "display":{
                 "oled":displayoled,
                 "local":displaylocal,

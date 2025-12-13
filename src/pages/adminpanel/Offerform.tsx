@@ -8,21 +8,11 @@ import * as Yup from "yup";
 
 export default function Offerform({type,onClose,onSubmit,editdetails} :any) {
     const [showLoading,setShowLoading] = useState(false);
-    const convertToThumbnailLink = (driveLink:string) => {
-        const fileIdMatch = driveLink.match(/\/d\/(.*?)\//);
-        if (!fileIdMatch || fileIdMatch.length < 2) {
-          toast.error("Invalid Google Drive link",{
-              theme:"colored",
-              position:"top-center"
-            })
-            setShowLoading(false);
-            resetForm();
-            onClose();
-          throw new Error("Invalid Google Drive link");
-        }
-        const fileId = fileIdMatch[1];
-        const thumbnailLink = `https://drive.google.com/thumbnail?id=${fileId}&sz=w1000`;
-        return thumbnailLink;
+  const convertToThumbnailLink = (driveLink:string) => {
+      const fileIdMatch = driveLink.match(/\/d\/(.*?)\//);
+      const fileId = fileIdMatch && fileIdMatch?.length > 0 ? fileIdMatch[1] : driveLink;
+      const thumbnailLink = `https://drive.google.com/thumbnail?id=${fileId}&sz=w1000`;
+      return thumbnailLink;
     }
     const schema = Yup.object().shape({
         label: Yup.string().required("Offer Label is required").min(2),
@@ -49,7 +39,7 @@ export default function Offerform({type,onClose,onSubmit,editdetails} :any) {
             "discountpercent":discountpercent,
             "applicableservice":applicableservice,
             "infotext":infotext,
-            "imagelink": imagelink.includes("https://drive.google.com") ? imagelink : convertToThumbnailLink(imagelink),
+            "imagelink": convertToThumbnailLink(imagelink),
         }
         await onSubmit(type,payloadData);
         setShowLoading(false);
