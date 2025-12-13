@@ -69,8 +69,8 @@ export default function Modelform({type,onClose,onSubmit,editdetails,brands} :an
             "speaker":speaker,
             "receiver":receiver,
             "glass":glass,
-            "modelimagelink": convertToThumbnailLink(modelimagelink),
-            "smallimagelink": convertToThumbnailLink(modelimagelink),
+            "modelimagelink": modelimagelink,
+            "smallimagelink": modelimagelink,
             "display":{
                 "oled":displayoled,
                 "local":displaylocal,

@@ -171,20 +171,34 @@ export default function IPadModels({ data }: any) {
     </>
   );
 }
-export async function getStaticProps() {
-    const modelsPayload = {
-      brand:"apple",
-      type:"tablet"
-    }
-    const modelsCall = await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/models/getmodels`,modelsPayload)
-    .then((response) => {
-      if(response.status === 201){
-        return {response:response.data.models}
-      }else{
-        return {error:"Something unexpected happend please try again later"}
-      }
-    }).catch((error) => {
-       return {error:error.message ? error.message : "Something unexpected happend please try again later"}
-    })
-    return { props: { data:modelsCall } };
- }
+export async function getServerSideProps() {
+  const modelsPayload = {
+    brand: "apple",
+    type: "tablet",
+  };
+
+  try {
+    const response = await axios.post(
+      `${process.env.NEXT_PUBLIC_API_URL}/models/getmodels`,
+      modelsPayload
+    );
+
+    return {
+      props: {
+        data: {
+          response: response.data.models,
+        },
+      },
+    };
+  } catch (error: any) {
+    return {
+      props: {
+        data: {
+          error:
+            error.message ||
+            "Something unexpected happened please try again later",
+        },
+      },
+    };
+  }
+}

@@ -132,16 +132,25 @@ export default function Offers({data}:any) {
     </>
     )
 }
-export async function getStaticProps() {
-  const offersCall = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/offers/getoffers`)
-  .then((response) => {
-    if(response.status === 200){
-      return {response:response.data.response}
-    }else{
-      return {error:"Something unexpected happend please try again later"}
-    }
-  }).catch((error) => {
-     return {error:error.message ? error.message : "Something unexpected happend please try again later"}
-  })
-  return { props: { data:offersCall } };
-}  
+export async function getServerSideProps() {
+  try {
+    const response = await axios.get(
+      `${process.env.NEXT_PUBLIC_API_URL}/offers/getoffers`
+    );
+
+    return {
+      props: {
+        data: { response: response.data.response }
+      }
+    };
+  } catch (error: any) {
+    return {
+      props: {
+        data: {
+          error: error.message || "Something unexpected happened"
+        }
+      }
+    };
+  }
+}
+ 

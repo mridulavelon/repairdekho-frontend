@@ -8,12 +8,7 @@ import * as Yup from "yup";
 
 export default function Offerform({type,onClose,onSubmit,editdetails} :any) {
     const [showLoading,setShowLoading] = useState(false);
-  const convertToThumbnailLink = (driveLink:string) => {
-      const fileIdMatch = driveLink.match(/\/d\/(.*?)\//);
-      const fileId = fileIdMatch && fileIdMatch?.length > 0 ? fileIdMatch[1] : driveLink;
-      const thumbnailLink = `https://drive.google.com/thumbnail?id=${fileId}&sz=w1000`;
-      return thumbnailLink;
-    }
+
     const schema = Yup.object().shape({
         label: Yup.string().required("Offer Label is required").min(2),
         discountpercent: Yup.string().required("Discount Percent is required").min(2),
@@ -39,7 +34,7 @@ export default function Offerform({type,onClose,onSubmit,editdetails} :any) {
             "discountpercent":discountpercent,
             "applicableservice":applicableservice,
             "infotext":infotext,
-            "imagelink": convertToThumbnailLink(imagelink),
+            "imagelink": imagelink,
         }
         await onSubmit(type,payloadData);
         setShowLoading(false);

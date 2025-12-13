@@ -127,8 +127,8 @@ export default function Repairmydevice({data}:any) {
            alt="Honor" 
            className="object-contain w-32 h-32 duration-300 hover:scale-110"
             onError={(e) => {
-    e.currentTarget.src = "/images/no-preview.jpg";
-  }}
+              e.currentTarget.src = "/images/no-preview.jpg";
+            }}
            />
           </div>
       ))}
@@ -262,16 +262,24 @@ export default function Repairmydevice({data}:any) {
       </>
     )
 }
-export async function getStaticProps() {
-    const brandsCall = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/brands/getbrands`)
-    .then((response) => {
-      if(response.status === 200){
-        return {response:response.data.response}
-      }else{
-        return {error:"Something unexpected happend please try again later"}
+export async function getServerSideProps() {
+  try {
+    const response = await axios.get(
+      `${process.env.NEXT_PUBLIC_API_URL}/brands/getbrands`
+    );
+
+    return {
+      props: {
+        data: { response: response.data.response }
       }
-    }).catch((error) => {
-       return {error:error.message ? error.message : "Something unexpected happend please try again later"}
-    })
-    return { props: { data:brandsCall } };
- }
+    };
+  } catch (error: any) {
+    return {
+      props: {
+        data: {
+          error: error.message || "Something unexpected happened"
+        }
+      }
+    };
+  }
+}

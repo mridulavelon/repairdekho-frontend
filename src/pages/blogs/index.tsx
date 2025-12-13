@@ -141,16 +141,26 @@ export default function Blogs({data}:any) {
       </>
     )
   }
-  export async function getStaticProps() {
-    const blogsCall = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/blogs/getblogs`)
-    .then((response:any) => {
-      if(response.status ===200){
-        return {response:response.data.response}
-      }else{
-        return {error:true}
+export async function getServerSideProps() {
+  try {
+    const response = await axios.get(
+      `${process.env.NEXT_PUBLIC_API_URL}/blogs/getblogs`
+    );
+
+    return {
+      props: {
+        data: {
+          response: response.data.response
+        }
       }
-    }).catch((error:any) => {
-       return {error:"Something unexpected happend please try again later"}
-    })
-    return { props: { data:blogsCall } };
+    };
+  } catch (error: any) {
+    return {
+      props: {
+        data: {
+          error: "Something unexpected happened, please try again later"
+        }
+      }
+    };
   }
+}

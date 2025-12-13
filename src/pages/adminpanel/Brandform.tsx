@@ -9,13 +9,6 @@ import * as Yup from "yup";
 export default function Brandform({type,onClose,onSubmit,editdetails} :any) {
     const [showLoading,setShowLoading] = useState(false);
 
-      const convertToThumbnailLink = (driveLink:string) => {
-      const fileIdMatch = driveLink.match(/\/d\/(.*?)\//);
-      const fileId = fileIdMatch && fileIdMatch?.length > 0 ? fileIdMatch[1] : driveLink;
-      const thumbnailLink = `https://drive.google.com/thumbnail?id=${fileId}&sz=w1000`;
-      return thumbnailLink;
-    }
-
     const schema = Yup.object().shape({
         name: Yup.string().required("Brand Name is required").min(2),
         imagelink: Yup.string().required("Brand Image is required").min(2),
@@ -33,7 +26,7 @@ export default function Brandform({type,onClose,onSubmit,editdetails} :any) {
             ...(type === "editbrand" && {"id":editdetails?._id}),
             "name":name,
             "value":name.toLowerCase(),
-            "imagelink": convertToThumbnailLink(imagelink),
+            "imagelink": imagelink,
         }
         await onSubmit(type,payloadData);
         setShowLoading(false);  

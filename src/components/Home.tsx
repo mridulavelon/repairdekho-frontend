@@ -116,6 +116,36 @@ export default function Homepage() {
     />
         <div className="bg-gray-50 text-gray-800 font-sans">
 
+{/* FIXED SEARCH */}
+<div className="absolute top-36 md:top-72 left-1/2 -translate-x-1/2 z-30 
+                w-[90%] max-w-xl">
+  <div className="relative">
+    <div className="flex items-center bg-white rounded-full shadow-xl px-5 py-3">
+      <input
+        type="text"
+        className="w-full outline-none text-gray-700 text-base"
+        placeholder="Search repair services, problems, issues..."
+        value={query}
+        onChange={(e) => handleSearch(e.target.value)}
+      />
+    </div>
+
+    {results.length > 0 && (
+      <div className="absolute w-full bg-white shadow-lg rounded-xl mt-2 max-h-60 overflow-auto">
+        {results.map((item, idx) => (
+          <div
+            key={idx}
+            className="px-4 py-3 hover:bg-gray-100 cursor-pointer border-b last:border-none"
+          >
+            {item}
+          </div>
+        ))}
+      </div>
+    )}
+  </div>
+</div>
+
+
 
 
 <section className="w-full relative overflow-hidden bg-gray-100 pt-24 pb-20 md:pt-0 md:h-[90vh]">
@@ -154,36 +184,6 @@ export default function Homepage() {
         </div>
       </div>
     ))}
-  </div>
-
-  {/* SEARCH BAR (FIXED BELOW TEXT, NOT SLIDING) */}
-  <div className="relative z-20 mt-10 px-6 md:px-16 lg:px-28">
-    <div className="max-w-xl mx-auto md:mx-0">
-      <div className="relative">
-        <div className="flex items-center bg-white rounded-full shadow-xl px-5 py-3">
-          <input
-            type="text"
-            className="w-full outline-none text-gray-700 text-base"
-            placeholder="Search repair services, problems, issues..."
-            value={query}
-            onChange={(e) => handleSearch(e.target.value)}
-          />
-        </div>
-
-        {results.length > 0 && (
-          <div className="absolute w-full bg-white shadow-lg rounded-xl mt-2 max-h-60 overflow-auto">
-            {results.map((item, idx) => (
-              <div
-                key={idx}
-                className="px-4 py-3 hover:bg-gray-100 cursor-pointer border-b last:border-none"
-              >
-                {item}
-              </div>
-            ))}
-          </div>
-        )}
-      </div>
-    </div>
   </div>
 
   {/* DOT INDICATORS */}

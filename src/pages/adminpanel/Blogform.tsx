@@ -10,12 +10,6 @@ import { toast } from "react-toastify";
 export default function Blogform({type,onClose,onSubmit,editdetails} :any) {
     const [showLoading,setShowLoading] = useState(false);
 
-  const convertToThumbnailLink = (driveLink:string) => {
-      const fileIdMatch = driveLink.match(/\/d\/(.*?)\//);
-      const fileId = fileIdMatch && fileIdMatch?.length > 0 ? fileIdMatch[1] : driveLink;
-      const thumbnailLink = `https://drive.google.com/thumbnail?id=${fileId}&sz=w1000`;
-      return thumbnailLink;
-    }
 
     const ReactQuill = useMemo(() => dynamic(() => import('react-quill'), { ssr: false }),[]);
     const schema = Yup.object().shape({
@@ -40,7 +34,7 @@ export default function Blogform({type,onClose,onSubmit,editdetails} :any) {
             "title": title,
             "summary":summary,
             "blogurl": title.replace(/[^a-zA-Z0-9\s]/g, '').replace(/\s+/g, '-').toLowerCase(),
-            "cover":  convertToThumbnailLink(cover),
+            "cover":  cover,
             "content":content,
             "timestamp":new Date()
         }
