@@ -196,7 +196,7 @@ export default function PrivacyPolicy() {
           </div>
 
           <img
-            src="https://img.freepik.com/free-vector/handshake-business-illustration_23-2148876959.jpg"
+            src="./images/yourconsent.jpg"
             alt="User Consent"
             className="rounded-2xl shadow-md"
           />

@@ -88,7 +88,7 @@ export default function TermsConditions() {
         {/* 3 */}
         <section className="bg-white rounded-3xl shadow-lg p-10 grid md:grid-cols-2 gap-10 items-center">
           <img
-            src="https://img.freepik.com/free-vector/technical-support-concept-illustration_114360-22083.jpg"
+            src="https://t3.ftcdn.net/jpg/05/20/54/94/360_F_520549426_ME9BP9oPEEcezQhukVX3EdxLW5rjYFhA.jpg"
             alt="Parts Warranty"
             className="rounded-2xl shadow-sm"
           />

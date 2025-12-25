@@ -1,93 +1,92 @@
-import useStore from "@/lib/store"
-import { faFacebookF } from "@fortawesome/free-brands-svg-icons"
-import { faInstagram } from "@fortawesome/free-brands-svg-icons/faInstagram"
-import { faLinkedin } from "@fortawesome/free-brands-svg-icons/faLinkedin"
-import { faTwitter } from "@fortawesome/free-brands-svg-icons/faTwitter"
-import { faYoutube } from "@fortawesome/free-brands-svg-icons/faYoutube"
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import Link from "next/link"
+import useStore from "@/lib/store";
+import { faFacebookF, faInstagram, faTwitter, faYoutube } from "@fortawesome/free-brands-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import Link from "next/link";
 
 export default function Footer() {
-   const { updateLoading } = useStore();
-    return (
-<footer className="bg-pink-600 text-slate-100 pt-12 pb-6 border-t border-gray-200">
-  <div className="container mx-auto px-6">
-    {/* TOP SECTION */}
-    <div className="flex flex-wrap gap-10 lg:gap-0 justify-between">
-      
-      {/* BRAND + SOCIAL */}
-      <div className="w-full lg:w-5/12 space-y-4">
-        <h4 className="text-3xl font-extrabold">repairDekho.</h4>
-        <p className="text-gray-200">
-          We’re available on all social platforms. We usually respond within 1–2 business days.
-        </p>
+  const { updateLoading } = useStore();
+  return (
+    <footer className="bg-pink-600 text-white w-full overflow-x-hidden">
+      <div className="w-full max-w-[1400px] mx-auto px-4 sm:px-6 md:px-10 lg:px-16 py-8 md:py-10">
+        
+        {/* RESPONSIVE GRID */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12 lg:gap-16">
+          
+          {/* BRAND + SOCIAL */}
+          <div className="space-y-4 text-center md:text-left">
+            <h4 className="text-2xl md:text-3xl font-extrabold">repairDekho.</h4>
+            <p className="text-sm md:text-base leading-relaxed max-w-md mx-auto md:mx-0">
+              We're available on all social platforms. We usually respond within
+              1–2 business days.
+            </p>
+            <div className="flex gap-3 pt-3 justify-center md:justify-start">
+              <div className="h-10 w-10 rounded-full bg-white flex items-center justify-center hover:scale-110 transition-transform cursor-pointer">
+                <FontAwesomeIcon icon={faTwitter} className="text-sky-500 text-lg" />
+              </div>
+              <div className="h-10 w-10 rounded-full bg-white flex items-center justify-center hover:scale-110 transition-transform cursor-pointer">
+                <FontAwesomeIcon icon={faFacebookF} className="text-blue-600 text-lg" />
+              </div>
+              <div className="h-10 w-10 rounded-full bg-white flex items-center justify-center hover:scale-110 transition-transform cursor-pointer">
+                <FontAwesomeIcon icon={faYoutube} className="text-red-500 text-lg" />
+              </div>
+              <div className="h-10 w-10 rounded-full bg-white flex items-center justify-center hover:scale-110 transition-transform cursor-pointer">
+                <FontAwesomeIcon icon={faInstagram} className="text-pink-500 text-lg" />
+              </div>
+            </div>
+          </div>
 
-        {/* SOCIAL ICONS */}
-        <div className="flex gap-3 pt-2">
-          <button className="bg-white shadow-sm hover:shadow-md transition rounded-full h-10 w-10 flex items-center justify-center">
-            <FontAwesomeIcon icon={faTwitter} className="text-sky-500" />
-          </button>
-          <button className="bg-white shadow-sm hover:shadow-md transition rounded-full h-10 w-10 flex items-center justify-center">
-            <FontAwesomeIcon icon={faFacebookF} className="text-blue-600" />
-          </button>
-          <button className="bg-white shadow-sm hover:shadow-md transition rounded-full h-10 w-10 flex items-center justify-center">
-            <FontAwesomeIcon icon={faYoutube} className="text-red-500" />
-          </button>
-          <button className="bg-white shadow-sm hover:shadow-md transition rounded-full h-10 w-10 flex items-center justify-center">
-            <FontAwesomeIcon icon={faInstagram} className="text-pink-500" />
-          </button>
+          {/* USEFUL LINKS */}
+          <div className="text-center md:text-left">
+            <h5 className="uppercase text-base md:text-lg font-semibold mb-4">
+              Useful Links
+            </h5>
+            <ul className="space-y-3 text-sm md:text-base">
+              <li>
+                <Link href="/aboutus" className="hover:underline hover:text-gray-200 transition">
+                  About Us
+                </Link>
+              </li>
+              <li>
+                <Link href="/blogs" className="hover:underline hover:text-gray-200 transition">
+                  Blog
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          {/* OTHER LINKS */}
+          <div className="text-center md:text-left">
+            <h5 className="uppercase text-base md:text-lg font-semibold mb-4">
+              Other Links
+            </h5>
+            <ul className="space-y-3 text-sm md:text-base">
+              <li>
+                <Link href="/terms-and-conditions" className="hover:underline hover:text-gray-200 transition">
+                  Terms & Conditions
+                </Link>
+              </li>
+              <li>
+                <Link href="/privacy-policy" className="hover:underline hover:text-gray-200 transition">
+                  Privacy Policy
+                </Link>
+              </li>
+              <li>
+                <Link href="/contactus" className="hover:underline hover:text-gray-200 transition">
+                  Contact Us
+                </Link>
+              </li>
+            </ul>
+          </div>
         </div>
+
+        {/* DIVIDER */}
+        <div className="border-t border-white/40 my-6 md:my-8"></div>
+
+        {/* COPYRIGHT */}
+        <p className="text-center text-sm md:text-base">
+          © 2025 <span className="font-semibold">repairDekho</span>. All rights reserved.
+        </p>
       </div>
-
-      {/* USEFUL LINKS */}
-      <div className="w-full sm:w-1/2 lg:w-3/12">
-        <h5 className="uppercase text-sm font-semibold mb-3">Useful Links</h5>
-        <ul className="space-y-2">
-          <li>
-            <Link href="/about-us" className="hover:text-gray-900 font-medium">
-              About Us
-            </Link>
-          </li>
-          <li>
-            <Link href="/blog" className="hover:text-gray-900 font-medium">
-              Blog
-            </Link>
-          </li>
-        </ul>
-      </div>
-
-      {/* OTHER LINKS */}
-      <div className="w-full sm:w-1/2 lg:w-3/12">
-        <h5 className="uppercase text-sm font-semibold mb-3">Other Links</h5>
-        <ul className="space-y-2">
-          <li>
-            <Link href="/terms-and-conditions" className="hover:text-gray-900 font-medium">
-              Terms & Conditions
-            </Link>
-          </li>
-          <li>
-            <Link href="/privacy-policy" className="hover:text-gray-900 font-medium">
-              Privacy Policy
-            </Link>
-          </li>
-          <li>
-            <Link href="/contactus" className="hover:text-gray-900 font-medium">
-              Contact Us
-            </Link>
-          </li>
-        </ul>
-      </div>
-    </div>
-
-    {/* DIVIDER */}
-    <hr className="my-8 border-gray-300" />
-
-    {/* BOTTOM COPYRIGHT */}
-    <div className="text-center text-sm text-white">
-      © 2025 <span className="font-semibold">repairDekho</span>. All rights reserved.
-    </div>
-  </div>
-</footer>      
-    )
-  }
-  
+    </footer>
+  );
+}

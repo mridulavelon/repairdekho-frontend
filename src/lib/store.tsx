@@ -18,6 +18,8 @@ interface othersService{
 }
 
 interface Product {
+  id: String;
+  _id: String;
   modelid: String;
   brand: String;
   model:string;
